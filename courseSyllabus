@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02201612 Course Syllabus - Soil Compaction in Agricultural Engineering</title>
+    <style>
+        body { font-family: 'Tahoma', sans-serif; margin: 20px; line-height: 1.6; }
+        .container { max-width: 1000px; margin: auto; }
+        h1, h2, h3 { color: #006633; border-bottom: 2px solid #ccc; padding-bottom: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; vertical-align: top; }
+        th { background-color: #f2f2f2; font-weight: bold; }
+        .header-info td:first-child { width: 30%; font-weight: bold; }
+        .main-info td:first-child { width: 35%; font-weight: bold; }
+        .credit-box { font-size: 1.1em; color: #333; }
+        .section-header { background-color: #e6ffe6; padding: 10px; margin-top: 20px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>รายละเอียดของรายวิชา (มคอ.3)</h1>
+        <h2>02201612 การอัดแน่นของดินทางวิศวกรรมเกษตร</h2>
+        <h2>Soil Compaction in Agricultural Engineering</h2>
+
+        <div class="section-header">
+            <h3>หมวดที่ 1 ข้อมูลโดยทั่วไป</h3>
+        </div>
+        <table>
+            <tr class="header-info">
+                <td>ชื่อสถาบันอุดมศึกษา</td>
+                <td>มหาวิทยาลัยเกษตรศาสตร์</td>
+            </tr>
+            <tr class="header-info">
+                <td>วิทยาเขต/คณะ/ภาควิชา</td>
+                <td>วิทยาเขตกำแพงแสน/คณะวิศวกรรมศาสตร์ กำแพงแสน/ภาควิชาวิศวกรรมเกษตร</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr class="main-info">
+                <td>1. รหัสและชื่อรายวิชา</td>
+                <td>02201612 การอัดแน่นของดินทางวิศวกรรมเกษตร (Soil Compaction in Agricultural Engineering)</td>
+            </tr>
+            <tr class="main-info">
+                <td>2. จำนวนหน่วยกิต</td>
+                <td class="credit-box">3 หน่วยกิต (3-0-6)</td>
+            </tr>
+            <tr class="main-info">
+                <td>3. หลักสูตรและประเภทของรายวิชา</td>
+                <td>หลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมเกษตร ประเภทวิชาเฉพาะด้าน (เลือก)</td>
+            </tr>
+            <tr class="main-info">
+                <td>4. อาจารย์ผู้รับผิดชอบรายวิชาและอาจารย์ผู้สอน</td>
+                <td>นายประเทือง อุษาบริสุทธิ์</td>
+            </tr>
+            <tr class="main-info">
+                <td>5. รายวิชาที่ต้องเรียนมาก่อน (Pre-requisites)</td>
+                <td>ไม่มี</td>
+            </tr>
+            <tr class="main-info">
+                <td>6. รายวิชาที่ต้องเรียนพร้อมกัน (Co-requisites)</td>
+                <td>ไม่มี</td>
+            </tr>
+            <tr class="main-info">
+                <td>7. สถานที่เรียน</td>
+                <td>วิทยาเขตกำแพงแสน</td>
+            </tr>
+        </table>
+
+        <div class="section-header">
+            <h3>หมวดที่ 2 จุดมุ่งหมายและวัตถุประสงค์</h3>
+        </div>
+        <table>
+            <tr>
+                <th>จุดมุ่งหมายของรายวิชา</th>
+                <td>เพื่อให้นิสิตได้เรียนรู้เนื้อหาเกี่ยวกับการอัดแน่นของดินทางวิศวกรรมเกษตร</td>
+            </tr>
+            <tr>
+                <th>วัตถุประสงค์ในการพัฒนา/ปรับปรุงรายวิชา</th>
+                <td>เพื่อให้มีความรู้และความเข้าใจเทคโนโลยีใหม่ของการอัดแน่นของดินทางวิศวกรรมเกษตร</td>
+            </tr>
+        </table>
+
+        <div class="section-header">
+            <h3>หมวดที่ 3 ลักษณะและการดำเนินการ</h3>
+        </div>
+        <h4>1. คำอธิบายรายวิชา</h4>
+        <ul>
+            <li>กลศาสตร์ของดินในการเกษตร พลศาสตร์ของดิน การบ่งบอกและผลของการอัดแน่นของดิน ความสัมพันธ์ระหว่างเครื่องจักรกลและการอัดแน่นของดิน การอัดแน่นของดินและการผลิตพืช การจัดการการอัดแน่นของดิน</li>
+            <li>Agricultural soil mechanics, soil dynamics, identification and effects of soil compaction, relationship of machines and soil compaction, soil compaction and crop production, management of soil compaction.</li>
+        </ul>
+
+        <h4>2. จำนวนชั่วโมงที่ใช้ต่อภาคการศึกษา</h4>
+        <table>
+            <tr>
+                <th>บรรยาย</th>
+                <th>สอนเสริม</th>
+                <th>ฝึกปฏิบัติ/งานภาคสนาม/ฝึกงาน</th>
+                <th>การศึกษาด้วยตนเอง</th>
+            </tr>
+            <tr>
+                <td>45 ชั่วโมง (3 ชั่วโมงต่อสัปดาห์)</td>
+                <td>0 ชั่วโมง</td>
+                <td>0 ชั่วโมง</td>
+                <td>90 ชั่วโมง (6 ชั่วโมงต่อสัปดาห์)</td>
+            </tr>
+        </table>
+
+        <h4>3. การให้คำปรึกษาและแนะนำทางวิชาการแก่นิสิตเป็นรายบุคคล</h4>
+        <p>วิธีการให้คำปรึกษาและแนะนำ: โดยการเข้าพบตามวัน เวลาว่างของอาจารย์ผู้สอน หรือโซเชียลมีเดีย</p>
+        <p>จำนวนชั่วโมงต่อภาคการศึกษา: ระบุไว้ในเอกสาร</p>
+        
+        <div class="section-header">
+            <h3>ผลลัพธ์การเรียนรู้ของรายวิชา (CLOs) เพื่อตอบสนอง PLO1 (วิจัยพัฒนาขั้นสูง)</h3>
+        </div>
+        <table>
+            <tr>
+                <th>CLO</th>
+                <th>คำอธิบาย CLO</th>
+            </tr>
+            <tr>
+                <td>CLO 1</td>
+                <td>วิเคราะห์และประเมิน ปรากฏการณ์การอัดแน่นของดิน โดยบูรณาการหลักการ กลศาสตร์ของดินและพลศาสตร์ของดิน เพื่อระบุปัญหาที่ซับซ้อนและมีศักยภาพในการวิจัย</td>
+            </tr>
+            <tr>
+                <td>CLO 2</td>
+                <td>ออกแบบและเสนอแนวทางการวิจัย ในการบ่งชี้และประเมินผลกระทบที่แตกต่างกันของการอัดแน่นของดิน และสร้าง สมมติฐาน หรือ แบบจำลองเชิงทฤษฎี/เชิงคำนวณ เพื่ออธิบายปรากฏการณ์ที่ไม่เคยมีมาก่อน</td>
+            </tr>
+            <tr>
+                <td>CLO 3</td>
+                <td>พัฒนาหรือปรับปรุง กลยุทธ์การจัดการการอัดแน่นของดิน โดยพิจารณาถึงความสัมพันธ์ระหว่างเครื่องจักรกลและการอัดแน่นของดินอย่างลึกซึ้ง และประเมินผลกระทบที่อาจเกิดขึ้นต่อการผลิตพืช เพื่อสร้าง นวัตกรรมวิธีการ ที่มีประสิทธิภาพสูงกว่าวิธีการเดิม</td>
+            </tr>
+            <tr>
+                <td>CLO 4</td>
+                <td>สังเคราะห์และนำเสนอผลงาน ในรูปแบบงานวิจัย/รายงานทางวิชาการที่ได้มาตรฐาน โดยสามารถเชื่อมโยงแนวคิดการอัดแน่นของดินเข้ากับ เทคโนโลยีใหม่ และแสดงให้เห็นถึงศักยภาพในการสร้าง องค์ความรู้ใหม่ ที่นำไปสู่การแก้ไขปัญหาในภาคอุตสาหกรรมเกษตรกรรมได้จริง</td>
+            </tr>
+        </table>
+        
+        <div class="section-header">
+            <h3>หมวดที่ 4 แผนการสอนและการประเมินผล</h3>
+        </div>
+        
+        <h4>1. แผนการสอน</h4>
+        <table>
+            <tr>
+                <th rowspan="2">ครั้งที่</th>
+                <th rowspan="2">หัวข้อ/รายละเอียด</th>
+                <th colspan="2">จำนวนชั่วโมง</th>
+                <th rowspan="2">กิจกรรมการเรียนการสอน และสื่อที่ใช้</th>
+                <th rowspan="2">ผู้สอน</th>
+                <th rowspan="2">LLOs (ผลลัพธ์การเรียนรู้ของผู้เรียน) ที่เกี่ยวข้อง</th>
+            </tr>
+            <tr>
+                <th>ทฤษฎี</th>
+                <th>ปฏิบัติ</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Introduction</td>
+                <td>3</td>
+                <td>0</td>
+                <td>บรรยาย</td>
+                <td>นายประเทือง อุษาบริสุทธิ์</td>
+                <td>LLO 1.2: กำหนดโจทย์วิจัยเบื้องต้นที่ซับซ้อนและมีโอกาสสร้างองค์ความรู้ใหม่</td>
+            </tr>
+            <tr>
+                <td>2-3</td>
+                <td>Agricultural soil mechanics</td>
+                <td>6</td>
+                <td>0</td>
+                <td>บรรยาย</td>
+                <td>นายประเทือง อุษาบริสุทธิ์</td>
+                <td>LLO 1.1: อธิบายและเปรียบเทียบความแตกต่างของสภาวะการอัดแน่นภายใต้หลักการ Agricultural soil mechanics และ Soil dynamics</td>
+            </tr>
+            <tr>
+                <td>4-5</td>
+                <td>Soil dynamics</td>
+                <td>6</td>
+                <td>0</td>
+                <td>บรรยาย</td>
+                <td>นายประเทือง อุษาบริสุทธิ์</td>
+                <td>LLO 1.1: อธิบายและเปรียบเทียบความแตกต่างของสภาวะการอัดแน่นภายใต้หลักการ Agricultural soil mechanics และ Soil dynamics</td>
+            </tr>
+            <tr>
+                <td>6-8</td>
+                <td>Identification and effects of soil compaction</td>
+                <td>9</td>
+                <td>0</td>
+                <td>บรรยาย</td>
+                <td>นายประเทือง อุษาบริสุทธิ์</td>
+                <td>LLO 2.1: ออกแบบระเบียบวิธีวิจัยสำหรับการบ่งชี้และประเมินผลกระทบ LLO 2.2: พัฒนาสมมติฐานหรือเสนอเค้าร่างแบบจำลองเพื่ออธิบายปรากฏการณ์ที่ไม่เคยมีมาก่อน</td>
+            </tr>
+            <tr>
+                <td>9-10</td>
+                <td>Relationship of machines and soil compaction</td>
+                <td>6</td>
+                <td>0</td>
+                <td>บรรยาย</td>
+                <td>นายประเทือง อุษาบริสุทธิ์</td>
+                <td>LLO 3.1: ประเมินประสิทธิภาพและข้อจำกัดของกลยุทธ์การจัดการที่มีอยู่ในปัจจุบัน LLO 3.2: สังเคราะห์และเสนอแนะกลยุทธ์ที่เป็นนวัตกรรม (เช่น การใช้เทคโนโลยีควบคุมเครื่องจักรกล)</td>
+            </tr>
+            <tr>
+                <td>11-13</td>
+                <td>Soil compaction and crop production</td>
+                <td>9</td>
+                <td>0</td>
+                <td>บรรยาย</td>
+                <td>นายประเทือง อุษาบริสุทธิ์</td>
+                <td>LLO 3.2: สังเคราะห์และเสนอแนะกลยุทธ์การจัดการการอัดแน่นของดินที่เป็นนวัตกรรม</td>
+            </tr>
+            <tr>
+                <td>14-15</td>
+                <td>Management of soil compaction</td>
+                <td>9</td>
+                <td>0</td>
+                <td>บรรยาย</td>
+                <td>นายประเทือง อุษาบริสุทธิ์</td>
+                <td>LLO 4.1: จัดทำรายงานทางวิชาการที่มีรูปแบบและมาตรฐาน LLO 4.2: นำเสนอและอภิปรายผลงานวิจัยของตนเองอย่างชัดเจนและมีเหตุผล</td>
+            </tr>
+        </table>
+        
+        <h4>2. การประเมินผล</h4>
+        <table>
+            <tr>
+                <th>กิจกรรมที่</th>
+                <th>กิจกรรมการประเมิน</th>
+                <th>สัปดาห์ที่ประเมิน</th>
+                <th>สัดส่วน (%) ของการประเมินผล</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>สอบข้อเขียน (เน้นการวิเคราะห์และการออกแบบแนวคิด)</td>
+                <td>สัปดาห์สอบ</td>
+                <td>80%</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>แบบฝึกหัด การบ้าน ทำรายงาน (รวมถึงการทำรายงานเชิงวิเคราะห์/นวัตกรรม)</td>
+                <td>ทุกสัปดาห์</td>
+                <td>20%</td>
+            </tr>
+        </table>
+
+        <div class="section-header">
+            <h3>หมวดที่ 5 ทรัพยากรประกอบการเรียนการสอน</h3>
+        </div>
+        <table>
+            <tr>
+                <th colspan="2">1. เอกสารและตำราหลัก</th>
+                <th>ประเภท</th>
+            </tr>
+            <tr>
+                <td colspan="2">Soil Compaction in Crop Production, B.D. Soane and C. van Ouwerkerk, Elsevier Science, Amsterdam, 2000, 640p.</td>
+                <td>ตำราหลัก</td>
+            </tr>
+            <tr>
+                <th colspan="2">2. เอกสารและข้อมูลสำคัญ</th>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2">1. Website รายวิชา</td>
+                <td></td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+</html>
