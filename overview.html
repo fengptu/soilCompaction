@@ -152,13 +152,33 @@
         </footer>
 
     </div>
-   <script>
-    function sendHeight() {
-        const height = document.body.scrollHeight;
-         parent.postMessage({ height: height }, "*");
-       }
-       window.onload = sendHeight;
-       window.onresize = sendHeight;
+    <script>
+        function sendHeight() {
+            try {
+                // ใช้ document.documentElement.scrollHeight เพื่อการวัดความสูงที่น่าเชื่อถือขึ้น
+                const height = document.documentElement.scrollHeight;
+                
+                // เพิ่ม console.log เพื่อตรวจสอบว่าฟังก์ชันรันและส่งค่าความสูงเท่าไหร่
+                console.log('sendHeight: Sending calculated height to parent:', height + 'px');
+                
+                // ส่งข้อความไปยัง Parent window เพื่อปรับขนาด iframe
+                // NOTE: The '*' wildcard means the message can be sent to any domain.
+                parent.postMessage({ height: height }, "*");
+
+            } catch (error) {
+                // ดักจับข้อผิดพลาดเผื่อกรณีที่โค้ดนี้ไม่ได้รันใน iframe
+                console.error('sendHeight: Error executing or posting message:', error);
+            }
+        }
+        
+        // รันเมื่อโครงสร้าง DOM โหลดเสร็จ (มักจะเร็วกว่า window.onload)
+        document.addEventListener('DOMContentLoaded', sendHeight); 
+        
+        // รันเมื่อโหลดเสร็จสมบูรณ์ (รวมถึงรูปภาพ ซึ่งในโค้ดนี้ไม่มี)
+        window.addEventListener('load', sendHeight);
+        
+        // รันเมื่อขนาดหน้าจอถูกปรับ
+        window.addEventListener('resize', sendHeight);
     </script>
 </body>
 </html>
