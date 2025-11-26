@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Soil Compaction – Chapter 1</title>
+
+<style>
+    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.5; }
+    h2 { color: #2c3e50; }
+    .question { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 8px; }
+    button {
+        padding: 8px 16px; margin-top: 10px; cursor: pointer; 
+        background: #3498db; color: white; border: none; border-radius: 6px;
+    }
+    .correct { color: green; font-weight: bold; margin-top: 10px; }
+    .wrong { color: red; font-weight: bold; margin-top: 10px; }
+    
+    /* แก้ไขการแสดงผลสำหรับส่วน Drag & Drop */
+    .drag-container { display: flex; gap: 40px; margin-top: 10px; }
+    .drag-items-list, .drop-boxes-list { display: flex; flex-direction: column; gap: 10px; }
+    
+    .drag-item {
+        padding: 10px; border: 1px solid #aaa; border-radius: 6px;
+        background: #f9f9f9; cursor: grab;
+        width: 150px; text-align: center;
+    }
+    .drop-box { 
+        padding: 10px; border: 2px dashed #aaa; border-radius: 6px; /* เปลี่ยนเป็นขอบประเพื่อให้ชัดเจนว่าเป็นพื้นที่วาง */
+        background: #eef; 
+        width: 150px; 
+        min-height: 40px; /* ใช้ min-height แทนเพื่อให้ item วางลงไปได้ */
+        text-align: center;
+    }
+    .dragged { opacity: 0.5; } /* เพิ่มสไตล์เมื่อลาก */
+</style>
+</head>
+
+<body>
+
+<h2>🔍 Chapter 1: Research Context & Scholarly Identity</h2>
+<p>Interactive activities to test your understanding of soil compaction in agricultural engineering.</p>
+
+<div class="question">
+    <h3>1) Which factor is a major contributor to Soil Compaction?</h3>
+
+    <label><input type="radio" name="q1" value="a"> Increasing weight of agricultural machinery</label><br>
+    <label><input type="radio" name="q1" value="b"> Reduced use of farm fertilizers</label><br>
+    <label><input type="radio" name="q1" value="c"> Higher temperature during harvest</label><br>
+
+    <button onclick="checkQ1()">Check Answer</button>
+    <div id="q1-result"></div>
+</div>
+
+---
+
+<div class="question">
+    <h3>2) Match each term with the correct description:</h3>
+
+    <div class="drag-container">
+        <div class="drag-items-list" id="drag-source-container"> 
+            <div class="drag-item" draggable="true" id="item1" data-correct-drop="drop1">Porosity ↓</div>
+            <div class="drag-item" draggable="true" id="item2" data-correct-drop="drop2">Infiltration ↓</div>
+            <div class="drag-item" draggable="true" id="item3" data-correct-drop="drop3">Soil Strength ↑</div>
+        </div>
+
+        <div class="drop-boxes-list">
+            <div class="drop-box" id="drop1">Reduced air movement</div>
+            <div class="drop-box" id="drop2">More runoff</div>
+            <div class="drop-box" id="drop3">Harder for roots to grow</div>
+        </div>
+    </div>
+
+    <button onclick="checkDrag()">Check Answer</button>
+    <div id="drag-result"></div>
+</div>
+
+---
+
+<div class="question">
+    <h3>3) What is one global environmental issue linked to soil compaction?</h3>
+
+    <input type="text" id="q3" placeholder="Type your answer here..." style="width: 95%; padding: 8px;">
+
+    <button onclick="checkQ3()">Check Answer</button>
+    <div id="q3-result"></div>
+</div>
+
+<script>
+// ------------------- Q1 Multiple Choice -------------------
+function checkQ1() {
+    const ans = document.querySelector('input[name="q1"]:checked');
+    if (!ans) {
+        document.getElementById("q1-result").innerHTML = "<div class='wrong'>Please select an answer.</div>";
+        return;
+    }
+    if (ans.value === "a") {
+        document.getElementById("q1-result").innerHTML = "<div class='correct'>Correct! Heavy machinery increases soil compaction.</div>";
+    } else {
+        document.getElementById("q1-result").innerHTML = "<div class='wrong'>Incorrect. Try again.</div>";
+    }
+}
+
+// ------------------- Drag & Match -------------------
+let dragItem = null;
+const dropTargets = document.querySelectorAll(".drop-box");
+const dragItems = document.querySelectorAll(".drag-item");
+const dragSourceContainer = document.getElementById("drag-source-container");
+
+// ฟังก์ชันสำหรับรีเซ็ตสถานะการลากและวาง
+function resetDragItems() {
+    dragItems.forEach(item => {
+        // ย้ายรายการกลับไปที่คอนเทนเนอร์เริ่มต้น
+        dragSourceContainer.appendChild(item);
+        item.classList.remove('dragged');
+        item.style.order = 0; // รีเซ็ตการเรียงลำดับในกรณีที่มีการใช้
+    });
+    
+    // ล้างผลลัพธ์
+    document.getElementById("drag-result").innerHTML = "";
+
+    // ล้างเนื้อหาของ drop-box (ยกเว้นข้อความเดิม) - แต่ในโค้ดนี้ drop-box มีแต่ข้อความ
+    // เนื่องจากเราย้าย item1, item2, item3 กลับไปที่ drag-source-container แล้ว 
+    // จึงไม่มีรายการที่ถูกลากอยู่ใน drop-box อีก
+}
+
+// ตั้งค่าเหตุการณ์สำหรับรายการที่สามารถลากได้ (Drag Items)
+dragItems.forEach(item => {
+    item.addEventListener("dragstart", (e) => {
+        dragItem = item;
+        e.dataTransfer.effectAllowed = "move";
+        e.dataTransfer.setData("text/plain", item.id); // กำหนด ID สำหรับการถ่ายโอนข้อมูล
+        setTimeout(() => item.classList.add('dragged'), 0);
+    });
+    item.addEventListener("dragend", () => {
+        item.classList.remove('dragged');
+    });
+});
+
+// ตั้งค่าเหตุการณ์สำหรับพื้นที่วาง (Drop Boxes)
+dropTargets.forEach(box => {
+    // ป้องกันการทำงานเริ่มต้นเพื่อให้สามารถวางได้
+    box.addEventListener("dragover", (e) => e.preventDefault()); 
+
+    // เหตุการณ์เมื่อปล่อยรายการลงในพื้นที่วาง
+    box.addEventListener("drop", (e) => {
+        e.preventDefault();
+        
+        // ตรวจสอบว่ามีรายการที่ถูกลากอยู่หรือไม่
+        if (dragItem) {
+            // ย้ายรายการที่ถูกลากไปที่ drop-box ใหม่
+            
+            // ตรวจสอบว่า drop-box มี item อื่นอยู่แล้วหรือไม่
+            // หากมี: นำ item นั้นกลับไปที่ source container ก่อน
+            if (box.children.length > 0) {
+                 const existingItem = box.children[0];
+                 dragSourceContainer.appendChild(existingItem);
+            }
+            
+            // วางรายการที่กำลังลากลงใน drop-box
+            box.appendChild(dragItem);
+            dragItem = null; // ล้างรายการที่กำลังถูกลาก
+        }
+    });
+});
+
+// ฟังก์ชันตรวจสอบคำตอบสำหรับ Drag & Match
+function checkDrag() {
+    // กำหนดการจับคู่ที่ถูกต้องตาม ID ของ item และ drop-box
+    const matches = [
+        { item: "item1", drop: "drop1" }, // Porosity ↓ -> Reduced air movement
+        { item: "item2", drop: "drop2" }, // Infiltration ↓ -> More runoff
+        { item: "item3", drop: "drop3" }  // Soil Strength ↑ -> Harder for roots to grow
+    ];
+
+    let allCorrect = true;
+
+    // ตรวจสอบการจับคู่แต่ละคู่
+    matches.forEach(match => {
+        const dropBox = document.getElementById(match.drop);
+        // ตรวจสอบว่า dropBox มี children (รายการที่ถูกลาก) และ ID ของ item นั้นตรงกับที่ถูกต้อง
+        if (dropBox.children.length === 0 || dropBox.children[0].id !== match.item) {
+            allCorrect = false;
+        }
+    });
+
+    if (allCorrect) {
+        document.getElementById("drag-result").innerHTML = "<div class='correct'>Perfect! All matches are correct.</div>";
+    } else {
+        document.getElementById("drag-result").innerHTML = "<div class='wrong'>Some matches are incorrect. Try again.</div>";
+        // หากไม่ถูกต้อง ให้รีเซ็ตเพื่อลองใหม่
+        setTimeout(resetDragItems, 2000); // รีเซ็ตหลังจาก 2 วินาทีเพื่อให้ผู้ใช้เห็นผลลัพธ์
+    }
+}
+
+// ------------------- Q3 Short Answer -------------------
+function checkQ3() {
+    const userAns = document.getElementById("q3").value.toLowerCase().trim();
+    // เพิ่มคำที่เกี่ยวข้องให้ครอบคลุมมากขึ้น
+    const keywords = ["erosion", "greenhouse", "waterlogging", "ghg", "n2o", "flood", "sediment"]; 
+
+    // ตรวจสอบว่าคำตอบของผู้ใช้มีคำสำคัญคำใดคำหนึ่งหรือไม่
+    const correct = keywords.some(k => userAns.includes(k));
+
+    if (correct) {
+        document.getElementById("q3-result").innerHTML = "<div class='correct'>Correct! Soil compaction contributes to global environmental issues such as **soil erosion** and increased **greenhouse gas emissions (N₂O)**.</div>";
+    } else {
+        document.getElementById("q3-result").innerHTML = "<div class='wrong'>Not quite. Think about erosion or greenhouse gases.</div>";
+    }
+}
+</script>
+
+</body>
+</html>
