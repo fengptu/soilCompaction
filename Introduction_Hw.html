@@ -142,6 +142,65 @@ function checkIntegrated() {
         <input type="hidden" id="ans_stress">
     </div>
 </div>
+<button onclick="submitToGoogle()">📤 Submit to Google Sheet</button>
+<script>
+// =====================================================
+//  SUBMIT ANSWERS TO GOOGLE SHEET
+// =====================================================
+function submitToGoogle() {
 
+    let payload = {
+        porosity: document.getElementById("in_porosity").value,
+        voidRatio: document.getElementById("in_void").value,
+        coneIndex: document.getElementById("in_ci").value,
+        wheelStress: document.getElementById("in_stress").value,
+
+        // Random problem values
+        bulkDensity: document.getElementById("bd_val").innerText,
+        particleDensity: document.getElementById("pd_val").innerText,
+        coneForce: document.getElementById("cf_val").innerText,
+        wheelLoad: document.getElementById("wl_val").innerText,
+        contactArea: document.getElementById("ca_val").innerText
+    };
+
+    fetch("PASTE_WEB_APP_URL_HERE", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    });
+
+    alert("Your answers have been submitted!");
+}
+
+function sendHeight() {
+        try {
+            // ใช้ document.documentElement.scrollHeight เพื่อการวัดความสูงที่น่าเชื่อถือขึ้น
+            // Note: We use Math.max to account for both documentElement and body height, although documentElement is usually sufficient.
+            const height = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+            
+            // เพิ่ม console.log เพื่อตรวจสอบว่าฟังก์ชันรันและส่งค่าความสูงเท่าไหร่
+            console.log('sendHeight: Sending calculated height to parent:', height + 'px');
+            
+            // ส่งข้อความไปยัง Parent window เพื่อปรับขนาด iframe
+            // NOTE: The '*' wildcard means the message can be sent to any domain.
+            parent.postMessage({ height: height }, "*");
+
+        } catch (error) {
+            // ดักจับข้อผิดพลาดเผื่อกรณีที่โค้ดนี้ไม่ได้รันใน iframe (i.e., parent is undefined)
+            console.error('sendHeight: Error executing or posting message (usually means no parent window or code is not in iframe):', error);
+        }
+    }
+    
+    // รันเมื่อโครงสร้าง DOM โหลดเสร็จ
+    document.addEventListener('DOMContentLoaded', sendHeight); 
+    
+    // รันเมื่อโหลดเสร็จสมบูรณ์ (รวมถึงรูปภาพและสไตล์ทั้งหมด)
+    window.addEventListener('load', sendHeight);
+    
+    // รันเมื่อขนาดหน้าจอถูกปรับ
+    window.addEventListener('resize', sendHeight);
+</script>
+    
 </body>
 </html>
