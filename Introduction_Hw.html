@@ -95,15 +95,14 @@ function submitToGoogle() {
     contactArea: parseFloat(document.getElementById("ca_val").innerText)
   };
 
+
   fetch("https://script.google.com/macros/s/AKfycbyx8F2_O-aquzXgUwEkE_PKUHBpocB8D4d4UVnODxeVIrgRgoA5Cw-dSSyoR8gqfCASpA/exec", {
-    method: "POST",
+   method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
   })
   .then(res => res.json())
-  .then(response => {
-    alert(response.message); // แจ้งผู้ใช้ว่าบันทึกสำเร็จหรือ ID ไม่พบ
-  })
+  .then(response => alert(response.message))
   .catch(err => console.error(err));
 }
 
