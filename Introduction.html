@@ -46,6 +46,10 @@
         .variables p {
             margin: 2px 0;
         }
+        .reference {
+            font-size: 0.9em;
+            color: #555;
+        }
     </style>
 </head>
 
@@ -72,6 +76,7 @@
         <p><strong>V<sub>w</sub></strong> = volume of water in pores</p>
         <p><strong>V<sub>a</sub></strong> = volume of air in pores</p>
     </div>
+    <p class="reference">Reference: Hillel, D. (2004). <em>Introduction to Environmental Soil Physics</em>. Academic Press.</p>
 </div>
 
 <div class="section">
@@ -84,6 +89,7 @@
         <p><strong>M<sub>s</sub></strong> = mass of dry soil solids (g)</p>
         <p><strong>V</strong> = total soil volume (cm³)</p>
     </div>
+    <p class="reference">Reference: Brady, N.C. & Weil, R.R. (2017). <em>The Nature and Properties of Soils</em>, 15th Edition. Pearson.</p>
 
     <h3>1.3.2 Particle Density (ρ<sub>s</sub>)</h3>
     <div class="formula">ρ<sub>s</sub> = M<sub>s</sub> / V<sub>s</sub></div>
@@ -92,12 +98,14 @@
         <p><strong>M<sub>s</sub></strong> = mass of dry soil solids (g)</p>
         <p><strong>V<sub>s</sub></strong> = volume of soil solids (cm³)</p>
     </div>
+    <p class="reference">Reference: Hillel, D. (2004). <em>Introduction to Environmental Soil Physics</em>. Academic Press.</p>
 
     <h3>1.3.3 Porosity (n)</h3>
     <div class="formula">n = 1 − (ρ<sub>b</sub> / ρ<sub>s</sub>)</div>
     <div class="variables">
         <p><strong>n</strong> = porosity (fraction of soil volume that is pore space)</p>
     </div>
+    <p class="reference">Reference: Brady & Weil, 2017.</p>
 
     <h3>1.3.4 Void Ratio (e)</h3>
     <div class="formula">e = V<sub>v</sub> / V<sub>s</sub></div>
@@ -105,8 +113,8 @@
         <p><strong>e</strong> = void ratio</p>
         <p><strong>V<sub>v</sub></strong> = volume of voids (V<sub>w</sub> + V<sub>a</sub>)</p>
     </div>
-    <p>Relationship between porosity and void ratio:</p>
     <div class="formula">n = e / (1 + e)</div>
+    <p class="reference">Reference: Lambe, T.W. & Whitman, R.V. (1969). <em>Soil Mechanics</em>. Wiley.</p>
 </div>
 
 <div class="section">
@@ -119,6 +127,7 @@
         <p><strong>M<sub>w</sub></strong> = mass of water (g)</p>
         <p><strong>M<sub>s</sub></strong> = mass of dry soil solids (g)</p>
     </div>
+    <p class="reference">Reference: Gee, G.W. & Or, D. (2002). <em>Particle-size analysis</em>. In: Dane, J.H., Topp, G.C. (eds) Methods of Soil Analysis.</p>
 
     <h3>1.4.2 Dry-Basis Moisture Content (MC<sub>db</sub>)</h3>
     <div class="formula">MC<sub>db</sub> = (M<sub>w</sub> / M<sub>s</sub>) × 100%</div>
@@ -131,26 +140,26 @@
     <div class="variables">
         <p><strong>θ</strong> = volumetric water content (fraction)</p>
     </div>
-
-    <p>Relation to dry-basis moisture:</p>
     <div class="formula">θ = MC<sub>db</sub> × (ρ<sub>b</sub> / ρ<sub>w</sub>)</div>
     <div class="variables">
         <p><strong>ρ<sub>w</sub></strong> = water density (~1 g/cm³)</p>
     </div>
+    <p class="reference">Reference: Hillel, 2004; Brady & Weil, 2017.</p>
 </div>
 
 <div class="section">
     <h2>1.5 Soil Stress Under Load</h2>
 
-    <h3>1.5.1 Normal Stress (σ)</h3>
+    <h3>Normal Stress (σ)</h3>
     <div class="formula">σ = F / A</div>
     <div class="variables">
         <p><strong>σ</strong> = normal stress on soil (Pa)</p>
         <p><strong>F</strong> = applied force (N)</p>
         <p><strong>A</strong> = contact area (m²)</p>
     </div>
+    <p class="reference">Reference: Lambe & Whitman, 1969.</p>
 
-    <h3>1.5.2 Vertical Stress (Boussinesq Equation)</h3>
+    <h3>Vertical Stress (Boussinesq Equation)</h3>
     <div class="formula">σ<sub>z</sub> = (3P / (2π z²)) × [1 / (1 + (r/z)²)<sup>5/2</sup>]</div>
     <div class="variables">
         <p><strong>σ<sub>z</sub></strong> = vertical stress at depth z (Pa)</p>
@@ -158,6 +167,7 @@
         <p><strong>z</strong> = depth from surface (m)</p>
         <p><strong>r</strong> = radial distance from load center (m)</p>
     </div>
+    <p class="reference">Reference: Boussinesq, J. (1885). <em>Application des Potentiels à l'étude de l'équilibre et du mouvement des solides élastiques</em>.</p>
 </div>
 
 <div class="section">
@@ -171,6 +181,7 @@
         <p><strong>σ</strong> = normal stress (Pa)</p>
         <p><strong>φ</strong> = internal friction angle (degrees)</p>
     </div>
+    <p class="reference">Reference: Lambe & Whitman, 1969; Brady & Weil, 2017.</p>
 
     <h3>Cone Index (CI)</h3>
     <div class="formula">CI = F / A<sub>c</sub></div>
@@ -179,6 +190,7 @@
         <p><strong>F</strong> = force to push cone (N)</p>
         <p><strong>A<sub>c</sub></strong> = area of cone base (m²)</p>
     </div>
+    <p class="reference">Reference: ASABE Standard, S313.3 (2017).</p>
 </div>
 
 <div class="section">
@@ -193,6 +205,7 @@
         <p><strong>γ</strong> = unit weight of soil (N/m³)</p>
         <p><strong>N<sub>c</sub>, N<sub>q</sub>, N<sub>γ</sub></strong> = bearing capacity factors</p>
     </div>
+    <p class="reference">Reference: Terzaghi, K. (1943). <em>Theoretical Soil Mechanics</em>. Wiley.</p>
 </div>
 
 <div class="section">
@@ -205,7 +218,8 @@
         <p><strong>ρ<sub>b,compacted</sub></strong> = bulk density after compaction (g/cm³)</p>
         <p><strong>ρ<sub>b,initial</sub></strong> = initial bulk density (g/cm³)</p>
     </div>
+    <p class="reference">Reference: Hamza, M.A. & Anderson, W.K. (2005). <em>Soil compaction in cropping systems</em>. Soil & Tillage Research, 82: 121–145.</p>
 </div>
 
 </body>
-                                                                                              </html>
+    </html>
