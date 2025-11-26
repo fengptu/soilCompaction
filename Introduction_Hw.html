@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Integrated Soil Compaction Problem — Randomized</title>
+<title>Integrated Soil Compaction Problem — Randomized + Google Sheet Submit</title>
 
 <style>
     body { font-family: Arial, sans-serif; background:#eef6f7; padding:20px; }
     h1 { color:#023047; }
     .box { background:white; padding:20px; border-radius:12px; margin-bottom:25px; box-shadow:0 0 10px #ccc; }
     .quiz-box { background:#caf0f8; padding:15px; border-radius:10px; margin-top:10px; }
-    input[type="number"] { width:150px; padding:6px; }
-    button { background:#0077b6; color:white; padding:8px 14px; border:none; border-radius:8px; cursor:pointer; }
+    input[type="number"], input[type="text"] { width:200px; padding:6px; margin-bottom:10px; }
+    button { background:#0077b6; color:white; padding:10px 16px; border:none; border-radius:8px; cursor:pointer; margin-right:10px; }
     button:hover { background:#005f86; }
 </style>
 
@@ -21,39 +21,33 @@
 // =====================================================
 function generateIntegratedProblem() {
 
-    // Random data (realistic agricultural field values)
-    let bulkDensity = (1.10 + Math.random()*0.60).toFixed(2);        // 1.10–1.70 g/cm3
-    let particleDensity = (2.55 + Math.random()*0.15).toFixed(2);    // 2.55–2.70 g/cm3
-    let coneForce = (300 + Math.random()*500).toFixed(0);            // 300–800 N
-    let coneArea = 3.14;                                             // cm² (standard 30° cone)
-    let wheelLoad = (800 + Math.random()*400).toFixed(0);            // 800–1200 kg
-    let contactArea = (120 + Math.random()*80).toFixed(0);           // 120–200 cm²
+    let bulkDensity = (1.10 + Math.random()*0.60).toFixed(2);
+    let particleDensity = (2.55 + Math.random()*0.15).toFixed(2);
+    let coneForce = (300 + Math.random()*500).toFixed(0);
+    let coneArea = 3.14;
+    let wheelLoad = (800 + Math.random()*400).toFixed(0);
+    let contactArea = (120 + Math.random()*80).toFixed(0);
 
-    // Display values
     document.getElementById("bd_val").innerText = bulkDensity;
     document.getElementById("pd_val").innerText = particleDensity;
     document.getElementById("cf_val").innerText = coneForce;
     document.getElementById("wl_val").innerText = wheelLoad;
     document.getElementById("ca_val").innerText = contactArea;
 
-    // Compute correct answers
     let porosity = (1 - bulkDensity/particleDensity).toFixed(3);
     let voidRatio = (porosity / (1 - porosity)).toFixed(3);
-    let CI = (coneForce / coneArea).toFixed(1);                       // MPa approx.
-    let stress = ((wheelLoad * 9.81) / contactArea / 100).toFixed(2); // convert kg→N, cm2→m2 scale approx
+    let CI = (coneForce / coneArea).toFixed(1);
+    let stress = ((wheelLoad * 9.81) / contactArea / 100).toFixed(2);
 
-    // Store answers in hidden inputs
     document.getElementById("ans_porosity").value = porosity;
     document.getElementById("ans_void").value = voidRatio;
     document.getElementById("ans_ci").value = CI;
     document.getElementById("ans_stress").value = stress;
 
-    // Reset inputs
     document.getElementById("in_porosity").value = "";
     document.getElementById("in_void").value = "";
     document.getElementById("in_ci").value = "";
     document.getElementById("in_stress").value = "";
-
     document.getElementById("result").innerHTML = "";
 }
 
@@ -82,57 +76,94 @@ function checkIntegrated() {
 
     document.getElementById("result").innerHTML = feedback;
 }
+
+// =====================================================
+// =============== SUBMIT TO GOOGLE SHEETS =============
+// =====================================================
+function submitToGoogle() {
+
+    const url = "https://script.google.com/macros/s/AKfycbyx8F2_O-aquzXgUwEkE_PKUHBpocB8D4d4UVnODxeVIrgRgoA5Cw-dSSyoR8gqfCASpA/exec"; // <<<<<<<<<<< ใส่ URL ที่นี่
+
+    let payload = {
+        studentName: document.getElementById("student_name").value,
+        studentID: document.getElementById("student_id").value,
+
+        porosity: document.getElementById("in_porosity").value,
+        voidRatio: document.getElementById("in_void").value,
+        coneIndex: document.getElementById("in_ci").value,
+        wheelStress: document.getElementById("in_stress").value,
+
+        bulkDensity: document.getElementById("bd_val").innerText,
+        particleDensity: document.getElementById("pd_val").innerText,
+        coneForce: document.getElementById("cf_val").innerText,
+        wheelLoad: document.getElementById("wl_val").innerText,
+        contactArea: document.getElementById("ca_val").innerText
+    };
+
+    fetch(url, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    });
+
+    alert("Your answers have been successfully submitted!");
+}
 </script>
 </head>
 
 <body>
 
-<h1>Integrated Soil Compaction Numerical Problem</h1>
+<h1>Integrated Soil Compaction Problem (Randomized)</h1>
 
 <div class="box">
-    <p>This integrated problem assesses your understanding of soil compaction, soil physical properties, and stress transmission under wheel load.  
-    All numerical values below are randomized every time you click the button.</p>
 
-    <button onclick="generateIntegratedProblem()">🎲 Generate New Integrated Problem</button>
+    <h3>Student Information</h3>
+    <label>Name:</label><br>
+    <input type="text" id="student_name"><br>
+
+    <label>Student ID:</label><br>
+    <input type="text" id="student_id"><br><br>
+
+    <button onclick="generateIntegratedProblem()">🎲 Generate New Problem</button>
 
     <div class="quiz-box">
-        <h3><b>Problem:</b></h3>
-
-        <p>A soil profile was tested for compaction assessment. The following measurements were obtained:</p>
+        <h3><b>Problem Description</b></h3>
+        <p>The following soil and machinery parameters were collected from a field undergoing compaction assessment:</p>
 
         <ul>
             <li>Bulk density (ρb): <b><span id="bd_val">—</span></b> g/cm³</li>
             <li>Particle density (ρs): <b><span id="pd_val">—</span></b> g/cm³</li>
             <li>Cone penetration force: <b><span id="cf_val">—</span></b> N</li>
             <li>Wheel load: <b><span id="wl_val">—</span></b> kg</li>
-            <li>Tire–soil contact area: <b><span id="ca_val">—</span></b> cm²</li>
+            <li>Tire contact area: <b><span id="ca_val">—</span></b> cm²</li>
         </ul>
 
-        <p><b>Tasks:</b></p>
+        <h3>Tasks</h3>
         <ol>
-            <li>Compute porosity: \( n = 1 - \frac{\rho_b}{\rho_s} \)</li>
-            <li>Compute void ratio: \( e = \frac{n}{1-n} \)</li>
-            <li>Compute Cone Index: \( CI = \frac{F}{A} \) (MPa)</li>
-            <li>Compute applied stress under wheel load:  
-                \( \sigma = \frac{W \cdot 9.81}{A} \)  (converted into kPa)
-            </li>
+            <li>Calculate porosity \( n = 1 - \frac{\rho_b}{\rho_s} \)</li>
+            <li>Calculate void ratio \( e = \frac{n}{1-n} \)</li>
+            <li>Calculate Cone Index \( CI = \frac{F}{A} \) (MPa)</li>
+            <li>Calculate wheel-induced stress \( \sigma = \frac{W \cdot 9.81}{A} \) (kPa)</li>
         </ol>
 
         <h3>Your Answers</h3>
 
         <label>1) Porosity:</label><br>
-        <input type="number" id="in_porosity" step="0.001"><br><br>
+        <input type="number" id="in_porosity" step="0.001"><br>
 
         <label>2) Void Ratio:</label><br>
-        <input type="number" id="in_void" step="0.001"><br><br>
+        <input type="number" id="in_void" step="0.001"><br>
 
         <label>3) Cone Index (MPa):</label><br>
-        <input type="number" id="in_ci" step="0.1"><br><br>
+        <input type="number" id="in_ci" step="0.1"><br>
 
         <label>4) Wheel Load Stress (kPa):</label><br>
-        <input type="number" id="in_stress" step="0.01"><br><br>
+        <input type="number" id="in_stress" step="0.01"><br>
 
         <button onclick="checkIntegrated()">Check Answers</button>
+        <button onclick="submitToGoogle()">📤 Submit to Google Sheet</button>
+
         <p id="result"></p>
 
         <!-- Hidden correct answers -->
@@ -142,65 +173,6 @@ function checkIntegrated() {
         <input type="hidden" id="ans_stress">
     </div>
 </div>
-<button onclick="submitToGoogle()">📤 Submit to Google Sheet</button>
-<script>
-// =====================================================
-//  SUBMIT ANSWERS TO GOOGLE SHEET
-// =====================================================
-function submitToGoogle() {
 
-    let payload = {
-        porosity: document.getElementById("in_porosity").value,
-        voidRatio: document.getElementById("in_void").value,
-        coneIndex: document.getElementById("in_ci").value,
-        wheelStress: document.getElementById("in_stress").value,
-
-        // Random problem values
-        bulkDensity: document.getElementById("bd_val").innerText,
-        particleDensity: document.getElementById("pd_val").innerText,
-        coneForce: document.getElementById("cf_val").innerText,
-        wheelLoad: document.getElementById("wl_val").innerText,
-        contactArea: document.getElementById("ca_val").innerText
-    };
-
-    fetch("PASTE_WEB_APP_URL_HERE", {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-    });
-
-    alert("Your answers have been submitted!");
-}
-
-function sendHeight() {
-        try {
-            // ใช้ document.documentElement.scrollHeight เพื่อการวัดความสูงที่น่าเชื่อถือขึ้น
-            // Note: We use Math.max to account for both documentElement and body height, although documentElement is usually sufficient.
-            const height = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-            
-            // เพิ่ม console.log เพื่อตรวจสอบว่าฟังก์ชันรันและส่งค่าความสูงเท่าไหร่
-            console.log('sendHeight: Sending calculated height to parent:', height + 'px');
-            
-            // ส่งข้อความไปยัง Parent window เพื่อปรับขนาด iframe
-            // NOTE: The '*' wildcard means the message can be sent to any domain.
-            parent.postMessage({ height: height }, "*");
-
-        } catch (error) {
-            // ดักจับข้อผิดพลาดเผื่อกรณีที่โค้ดนี้ไม่ได้รันใน iframe (i.e., parent is undefined)
-            console.error('sendHeight: Error executing or posting message (usually means no parent window or code is not in iframe):', error);
-        }
-    }
-    
-    // รันเมื่อโครงสร้าง DOM โหลดเสร็จ
-    document.addEventListener('DOMContentLoaded', sendHeight); 
-    
-    // รันเมื่อโหลดเสร็จสมบูรณ์ (รวมถึงรูปภาพและสไตล์ทั้งหมด)
-    window.addEventListener('load', sendHeight);
-    
-    // รันเมื่อขนาดหน้าจอถูกปรับ
-    window.addEventListener('resize', sendHeight);
-</script>
-    
 </body>
 </html>
