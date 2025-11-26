@@ -3,121 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Module 1: Research Context & Scholarly Identity — Soil Compaction</title>
+<title>Integrated Soil Compaction Problem — Randomized</title>
 
 <style>
-    body { font-family: Arial, sans-serif; background:#fefae0; padding: 20px; }
-    h1 { color:#593f16; }
+    body { font-family: Arial, sans-serif; background:#eef6f7; padding:20px; }
+    h1 { color:#023047; }
     .box { background:white; padding:20px; border-radius:12px; margin-bottom:25px; box-shadow:0 0 10px #ccc; }
-    .quiz-box { background:#fff3c4; padding:15px; border-radius:10px; margin-top: 10px; }
-    input[type="number"], input[type="text"] { width:150px; padding:5px; }
-    button { background:#bc6c25; color:white; padding:8px 14px; border:none; border-radius:8px; cursor:pointer; }
-    button:hover { background:#a85d1f; }
+    .quiz-box { background:#caf0f8; padding:15px; border-radius:10px; margin-top:10px; }
+    input[type="number"] { width:150px; padding:6px; }
+    button { background:#0077b6; color:white; padding:8px 14px; border:none; border-radius:8px; cursor:pointer; }
+    button:hover { background:#005f86; }
 </style>
 
 <script>
-// ====================== RANDOM NUMBER GENERATOR ======================
-function generateProblem() {
-    // random ranges (customizable)
-    let bulkDensity = (1.1 + Math.random()*0.7).toFixed(2);   // 1.10–1.80 g/cm3
-    let particleDensity = (2.50 + Math.random()*0.2).toFixed(2); // 2.50–2.70 g/cm3
+// =====================================================
+// =============== RANDOM VALUE GENERATOR ===============
+// =====================================================
+function generateIntegratedProblem() {
 
+    // Random data (realistic agricultural field values)
+    let bulkDensity = (1.10 + Math.random()*0.60).toFixed(2);        // 1.10–1.70 g/cm3
+    let particleDensity = (2.55 + Math.random()*0.15).toFixed(2);    // 2.55–2.70 g/cm3
+    let coneForce = (300 + Math.random()*500).toFixed(0);            // 300–800 N
+    let coneArea = 3.14;                                             // cm² (standard 30° cone)
+    let wheelLoad = (800 + Math.random()*400).toFixed(0);            // 800–1200 kg
+    let contactArea = (120 + Math.random()*80).toFixed(0);           // 120–200 cm²
+
+    // Display values
     document.getElementById("bd_val").innerText = bulkDensity;
     document.getElementById("pd_val").innerText = particleDensity;
-    document.getElementById("correct_porosity").value = (1 - bulkDensity/particleDensity).toFixed(3);
+    document.getElementById("cf_val").innerText = coneForce;
+    document.getElementById("wl_val").innerText = wheelLoad;
+    document.getElementById("ca_val").innerText = contactArea;
 
-    document.getElementById("user_porosity").value = "";
+    // Compute correct answers
+    let porosity = (1 - bulkDensity/particleDensity).toFixed(3);
+    let voidRatio = (porosity / (1 - porosity)).toFixed(3);
+    let CI = (coneForce / coneArea).toFixed(1);                       // MPa approx.
+    let stress = ((wheelLoad * 9.81) / contactArea / 100).toFixed(2); // convert kg→N, cm2→m2 scale approx
+
+    // Store answers in hidden inputs
+    document.getElementById("ans_porosity").value = porosity;
+    document.getElementById("ans_void").value = voidRatio;
+    document.getElementById("ans_ci").value = CI;
+    document.getElementById("ans_stress").value = stress;
+
+    // Reset inputs
+    document.getElementById("in_porosity").value = "";
+    document.getElementById("in_void").value = "";
+    document.getElementById("in_ci").value = "";
+    document.getElementById("in_stress").value = "";
+
     document.getElementById("result").innerHTML = "";
 }
 
-// ====================== CHECK ANSWER ======================
-function checkPorosity() {
-    let correct = parseFloat(document.getElementById("correct_porosity").value);
-    let user = parseFloat(document.getElementById("user_porosity").value);
+// =====================================================
+// =============== AUTO-CHECK ANSWERS ==================
+// =====================================================
+function checkIntegrated() {
 
-    if (isNaN(user)) {
-        document.getElementById("result").innerHTML = "❌ กรุณากรอกคำตอบเป็นตัวเลข";
-        return;
+    function check(idInput, idCorrect, label) {
+        let user = parseFloat(document.getElementById(idInput).value);
+        let correct = parseFloat(document.getElementById(idCorrect).value);
+
+        if (isNaN(user)) return `${label}: ❌ No answer<br>`;
+
+        let ok = Math.abs(user - correct) < 0.005;
+        return ok
+          ? `${label}: ✅ Correct (${correct})<br>`
+          : `${label}: ❌ Incorrect (Correct = ${correct})<br>`;
     }
 
-    if (Math.abs(correct - user) < 0.002) {
-        document.getElementById("result").innerHTML = "✅ ถูกต้อง! porosity = " + correct;
-    } else {
-        document.getElementById("result").innerHTML = "❌ ยังไม่ถูกต้อง — คำตอบที่ถูกต้องคือ " + correct;
-    }
+    let feedback = "";
+    feedback += check("in_porosity", "ans_porosity", "1) Porosity");
+    feedback += check("in_void", "ans_void", "2) Void Ratio");
+    feedback += check("in_ci", "ans_ci", "3) Cone Index (MPa)");
+    feedback += check("in_stress", "ans_stress", "4) Wheel Load Stress (kPa)");
+
+    document.getElementById("result").innerHTML = feedback;
 }
 </script>
-
 </head>
+
 <body>
 
-<h1>Module 1: Research Context & Scholarly Identity in Soil Compaction Research</h1>
+<h1>Integrated Soil Compaction Numerical Problem</h1>
 
 <div class="box">
-    <h2>Assignments Overview</h2>
-    <p>ชุดการบ้านนี้ออกแบบมาเพื่อเสริมสร้างความเข้าใจด้านบริบทงานวิจัย ความหมายเชิงชันสูตรของ Soil Compaction และบทบาทของนักวิจัยสาขาวิศวกรรมเกษตรให้ชัดเจนขึ้น</p>
-</div>
+    <p>This integrated problem assesses your understanding of soil compaction, soil physical properties, and stress transmission under wheel load.  
+    All numerical values below are randomized every time you click the button.</p>
 
-<!-- ===================================================== -->
-<!-- 1. Research-Based Assignment -->
-<!-- ===================================================== -->
-
-<div class="box">
-    <h2>📘 Assignment 1 — Research-Based Exploration</h2>
-    <p><strong>โจทย์:</strong> ค้นคว้าอย่างน้อย 3 บทความจากวารสารนานาชาติที่เกี่ยวข้องกับ <i>Soil Compaction in Agricultural Engineering</i> และจัดทำรายงาน (1–2 หน้า)</p>
-
-    <h3>หัวข้อที่ต้องมี</h3>
-    <ul>
-        <li>วัตถุประสงค์ของแต่ละงานวิจัย</li>
-        <li>ประเภทของการบีบอัดดิน (e.g., load-induced, tillage-induced, traffic-induced)</li>
-        <li>สูตรหรือโมเดลสำคัญที่ใช้ (ดึงจาก Module 1 เช่น stress–strain, compaction index)</li>
-        <li>วิธีการทดลอง เช่น Proctor test, plate sinkage test, cone index</li>
-        <li>ช่องว่างงานวิจัย (Research Gap)</li>
-        <li>สิ่งที่จะนำไปต่อยอดสำหรับงานวิจัยของผู้เรียน</li>
-    </ul>
-</div>
-
-<!-- ===================================================== -->
-<!-- 2. Mini-Report Assignment -->
-<!-- ===================================================== -->
-
-<div class="box">
-    <h2>📗 Assignment 2 — Scholarly Identity Mini-Report</h2>
-    <p><strong>โจทย์:</strong> เขียนรายงานสั้น 1 หน้าเกี่ยวกับ “ตัวตนทางวิชาการ (Scholarly Identity)” ของตนเองในฐานะนักวิจัยด้านวิศวกรรมเกษตร</p>
-
-    <h3>ควรมีประเด็นต่อไปนี้</h3>
-    <ul>
-        <li>หัวข้องานวิจัยที่สนใจ</li>
-        <li>ทฤษฎีหรือสูตรหลักที่ใช้ในการวิเคราะห์ดิน</li>
-        <li>คำอธิบายว่าทำไม soil compaction เป็นหัวข้อสำคัญสำหรับประเทศไทย</li>
-        <li>เป้าหมายระยะยาวด้านวิชาการ</li>
-    </ul>
-</div>
-
-<!-- ===================================================== -->
-<!-- 3. Integrated Numerical Problem with Randomized Numbers -->
-<!-- ===================================================== -->
-
-<div class="box">
-    <h2>📙 Assignment 3 — Integrated Numerical Problem (Randomized)</h2>
-    <p>กดปุ่มด้านล่างเพื่อสุ่มโจทย์ใหม่ทุกครั้ง</p>
-
-    <button onclick="generateProblem()">🎲 สุ่มโจทย์ใหม่</button>
+    <button onclick="generateIntegratedProblem()">🎲 Generate New Integrated Problem</button>
 
     <div class="quiz-box">
-        <p><b>โจทย์:</b> ให้ค่า bulk density = <span id="bd_val">—</span> g/cm³ และ particle density = <span id="pd_val">—</span> g/cm³  
-        จงคำนวณ porosity ของดิน (สูตร: n = 1 − ρb / ρs)</p>
+        <h3><b>Problem:</b></h3>
 
-        <p>
-            <label>กรอกคำตอบ (ทศนิยม 3 ตำแหน่ง):</label><br>
-            <input type="number" id="user_porosity" step="0.001">
-        </p>
+        <p>A soil profile was tested for compaction assessment. The following measurements were obtained:</p>
 
-        <button onclick="checkPorosity()">ตรวจคำตอบ</button>
+        <ul>
+            <li>Bulk density (ρb): <b><span id="bd_val">—</span></b> g/cm³</li>
+            <li>Particle density (ρs): <b><span id="pd_val">—</span></b> g/cm³</li>
+            <li>Cone penetration force: <b><span id="cf_val">—</span></b> N</li>
+            <li>Wheel load: <b><span id="wl_val">—</span></b> kg</li>
+            <li>Tire–soil contact area: <b><span id="ca_val">—</span></b> cm²</li>
+        </ul>
+
+        <p><b>Tasks:</b></p>
+        <ol>
+            <li>Compute porosity: \( n = 1 - \frac{\rho_b}{\rho_s} \)</li>
+            <li>Compute void ratio: \( e = \frac{n}{1-n} \)</li>
+            <li>Compute Cone Index: \( CI = \frac{F}{A} \) (MPa)</li>
+            <li>Compute applied stress under wheel load:  
+                \( \sigma = \frac{W \cdot 9.81}{A} \)  (converted into kPa)
+            </li>
+        </ol>
+
+        <h3>Your Answers</h3>
+
+        <label>1) Porosity:</label><br>
+        <input type="number" id="in_porosity" step="0.001"><br><br>
+
+        <label>2) Void Ratio:</label><br>
+        <input type="number" id="in_void" step="0.001"><br><br>
+
+        <label>3) Cone Index (MPa):</label><br>
+        <input type="number" id="in_ci" step="0.1"><br><br>
+
+        <label>4) Wheel Load Stress (kPa):</label><br>
+        <input type="number" id="in_stress" step="0.01"><br><br>
+
+        <button onclick="checkIntegrated()">Check Answers</button>
         <p id="result"></p>
 
-        <!-- hidden correct answer -->
-        <input type="hidden" id="correct_porosity">
+        <!-- Hidden correct answers -->
+        <input type="hidden" id="ans_porosity">
+        <input type="hidden" id="ans_void">
+        <input type="hidden" id="ans_ci">
+        <input type="hidden" id="ans_stress">
     </div>
 </div>
 
