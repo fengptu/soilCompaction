@@ -81,34 +81,33 @@ function checkIntegrated() {
 // =============== SUBMIT TO GOOGLE SHEETS =============
 // =====================================================
 function submitToGoogle() {
+  const payload = {
+    studentName: document.getElementById("name").value,
+    studentID: document.getElementById("id").value,
+    porosity: parseFloat(document.getElementById("porosity").value),
+    voidRatio: parseFloat(document.getElementById("void").value),
+    coneIndex: parseFloat(document.getElementById("cone").value),
+    wheelStress: parseFloat(document.getElementById("stress").value),
+    bulkDensity: parseFloat(document.getElementById("bulk").value),
+    particleDensity: parseFloat(document.getElementById("particle").value),
+    coneForce: parseFloat(document.getElementById("force").value),
+    wheelLoad: parseFloat(document.getElementById("load").value),
+    contactArea: parseFloat(document.getElementById("area").value)
+  };
 
-    const url = "https://script.google.com/macros/s/AKfycbyx8F2_O-aquzXgUwEkE_PKUHBpocB8D4d4UVnODxeVIrgRgoA5Cw-dSSyoR8gqfCASpA/exec"; // <<<<<<<<<<< ใส่ URL ที่นี่
-
-    let payload = {
-        studentName: document.getElementById("student_name").value,
-        studentID: document.getElementById("student_id").value,
-
-        porosity: document.getElementById("in_porosity").value,
-        voidRatio: document.getElementById("in_void").value,
-        coneIndex: document.getElementById("in_ci").value,
-        wheelStress: document.getElementById("in_stress").value,
-
-        bulkDensity: document.getElementById("bd_val").innerText,
-        particleDensity: document.getElementById("pd_val").innerText,
-        coneForce: document.getElementById("cf_val").innerText,
-        wheelLoad: document.getElementById("wl_val").innerText,
-        contactArea: document.getElementById("ca_val").innerText
-    };
-
-    fetch(url, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-    });
-
-    alert("Your answers have been successfully submitted!");
+  fetch("https://script.google.com/macros/s/AKfycbyx8F2_O-aquzXgUwEkE_PKUHBpocB8D4d4UVnODxeVIrgRgoA5Cw-dSSyoR8gqfCASpA/exec", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  })
+  .then(res => res.json())
+  .then(response => {
+    alert(response.message); // แจ้งผู้ใช้ว่าบันทึกสำเร็จหรือ ID ไม่พบ
+  })
+  .catch(err => console.error(err));
 }
+
+
 </script>
 </head>
 
