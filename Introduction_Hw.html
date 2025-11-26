@@ -82,17 +82,17 @@ function checkIntegrated() {
 // =====================================================
 function submitToGoogle() {
   const payload = {
-    studentName: document.getElementById("name").value,
-    studentID: document.getElementById("id").value,
-    porosity: parseFloat(document.getElementById("porosity").value),
-    voidRatio: parseFloat(document.getElementById("void").value),
-    coneIndex: parseFloat(document.getElementById("cone").value),
-    wheelStress: parseFloat(document.getElementById("stress").value),
-    bulkDensity: parseFloat(document.getElementById("bulk").value),
-    particleDensity: parseFloat(document.getElementById("particle").value),
-    coneForce: parseFloat(document.getElementById("force").value),
-    wheelLoad: parseFloat(document.getElementById("load").value),
-    contactArea: parseFloat(document.getElementById("area").value)
+    studentName: document.getElementById("student_name").value,
+    studentID: document.getElementById("student_id").value,
+    porosity: parseFloat(document.getElementById("in_porosity").value),
+    voidRatio: parseFloat(document.getElementById("in_void").value),
+    coneIndex: parseFloat(document.getElementById("in_ci").value),
+    wheelStress: parseFloat(document.getElementById("in_stress").value),
+    bulkDensity: parseFloat(document.getElementById("bd_val").innerText),
+    particleDensity: parseFloat(document.getElementById("pd_val").innerText),
+    coneForce: parseFloat(document.getElementById("cf_val").innerText),
+    wheelLoad: parseFloat(document.getElementById("wl_val").innerText),
+    contactArea: parseFloat(document.getElementById("ca_val").innerText)
   };
 
   fetch("https://script.google.com/macros/s/AKfycbyx8F2_O-aquzXgUwEkE_PKUHBpocB8D4d4UVnODxeVIrgRgoA5Cw-dSSyoR8gqfCASpA/exec", {
