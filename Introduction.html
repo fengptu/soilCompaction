@@ -39,6 +39,13 @@
         th {
             background: #e4eaf2;
         }
+        .variables {
+            font-size: 0.95em;
+            margin-left: 15px;
+        }
+        .variables p {
+            margin: 2px 0;
+        }
     </style>
 </head>
 
@@ -59,6 +66,12 @@
     <h2>1.2 Three-Phase Soil System</h2>
     <p>Soil consists of solid particles, water, and air. The total soil volume is expressed as:</p>
     <div class="formula">V = V<sub>s</sub> + V<sub>w</sub> + V<sub>a</sub></div>
+    <div class="variables">
+        <p><strong>V</strong> = total soil volume</p>
+        <p><strong>V<sub>s</sub></strong> = volume of soil solids</p>
+        <p><strong>V<sub>w</sub></strong> = volume of water in pores</p>
+        <p><strong>V<sub>a</sub></strong> = volume of air in pores</p>
+    </div>
 </div>
 
 <div class="section">
@@ -66,15 +79,32 @@
 
     <h3>1.3.1 Bulk Density (ρ<sub>b</sub>)</h3>
     <div class="formula">ρ<sub>b</sub> = M<sub>s</sub> / V</div>
+    <div class="variables">
+        <p><strong>ρ<sub>b</sub></strong> = bulk density of soil (g/cm³)</p>
+        <p><strong>M<sub>s</sub></strong> = mass of dry soil solids (g)</p>
+        <p><strong>V</strong> = total soil volume (cm³)</p>
+    </div>
 
     <h3>1.3.2 Particle Density (ρ<sub>s</sub>)</h3>
     <div class="formula">ρ<sub>s</sub> = M<sub>s</sub> / V<sub>s</sub></div>
+    <div class="variables">
+        <p><strong>ρ<sub>s</sub></strong> = particle density of soil solids (g/cm³)</p>
+        <p><strong>M<sub>s</sub></strong> = mass of dry soil solids (g)</p>
+        <p><strong>V<sub>s</sub></strong> = volume of soil solids (cm³)</p>
+    </div>
 
     <h3>1.3.3 Porosity (n)</h3>
     <div class="formula">n = 1 − (ρ<sub>b</sub> / ρ<sub>s</sub>)</div>
+    <div class="variables">
+        <p><strong>n</strong> = porosity (fraction of soil volume that is pore space)</p>
+    </div>
 
     <h3>1.3.4 Void Ratio (e)</h3>
     <div class="formula">e = V<sub>v</sub> / V<sub>s</sub></div>
+    <div class="variables">
+        <p><strong>e</strong> = void ratio</p>
+        <p><strong>V<sub>v</sub></strong> = volume of voids (V<sub>w</sub> + V<sub>a</sub>)</p>
+    </div>
     <p>Relationship between porosity and void ratio:</p>
     <div class="formula">n = e / (1 + e)</div>
 </div>
@@ -84,15 +114,29 @@
 
     <h3>1.4.1 Wet-Basis Moisture Content (MC<sub>wb</sub>)</h3>
     <div class="formula">MC<sub>wb</sub> = (M<sub>w</sub> / (M<sub>w</sub> + M<sub>s</sub>)) × 100%</div>
+    <div class="variables">
+        <p><strong>MC<sub>wb</sub></strong> = moisture content on wet basis (%)</p>
+        <p><strong>M<sub>w</sub></strong> = mass of water (g)</p>
+        <p><strong>M<sub>s</sub></strong> = mass of dry soil solids (g)</p>
+    </div>
 
     <h3>1.4.2 Dry-Basis Moisture Content (MC<sub>db</sub>)</h3>
     <div class="formula">MC<sub>db</sub> = (M<sub>w</sub> / M<sub>s</sub>) × 100%</div>
+    <div class="variables">
+        <p><strong>MC<sub>db</sub></strong> = moisture content on dry basis (%)</p>
+    </div>
 
     <h3>1.4.3 Volumetric Water Content (θ)</h3>
     <div class="formula">θ = V<sub>w</sub> / V</div>
+    <div class="variables">
+        <p><strong>θ</strong> = volumetric water content (fraction)</p>
+    </div>
 
-    <p>Relationship to dry-basis moisture:</p>
+    <p>Relation to dry-basis moisture:</p>
     <div class="formula">θ = MC<sub>db</sub> × (ρ<sub>b</sub> / ρ<sub>w</sub>)</div>
+    <div class="variables">
+        <p><strong>ρ<sub>w</sub></strong> = water density (~1 g/cm³)</p>
+    </div>
 </div>
 
 <div class="section">
@@ -100,30 +144,54 @@
 
     <h3>1.5.1 Normal Stress (σ)</h3>
     <div class="formula">σ = F / A</div>
+    <div class="variables">
+        <p><strong>σ</strong> = normal stress on soil (Pa)</p>
+        <p><strong>F</strong> = applied force (N)</p>
+        <p><strong>A</strong> = contact area (m²)</p>
+    </div>
 
-    <h3>1.5.2 Contact Pressure (P<sub>c</sub>)</h3>
-    <p>Field contact pressure ≈ tire inflation pressure.</p>
-
-    <h3>1.5.3 Vertical Stress (Boussinesq Equation)</h3>
-    <div class="formula">
-        σ<sub>z</sub> = (3P / (2πz²)) × [1 / (1 + (r/z)²)<sup>5/2</sup>]
+    <h3>1.5.2 Vertical Stress (Boussinesq Equation)</h3>
+    <div class="formula">σ<sub>z</sub> = (3P / (2π z²)) × [1 / (1 + (r/z)²)<sup>5/2</sup>]</div>
+    <div class="variables">
+        <p><strong>σ<sub>z</sub></strong> = vertical stress at depth z (Pa)</p>
+        <p><strong>P</strong> = point load (N)</p>
+        <p><strong>z</strong> = depth from surface (m)</p>
+        <p><strong>r</strong> = radial distance from load center (m)</p>
     </div>
 </div>
 
 <div class="section">
     <h2>1.6 Soil Strength</h2>
 
-    <h3>1.6.1 Mohr–Coulomb Failure Criterion</h3>
+    <h3>Mohr–Coulomb Criterion</h3>
     <div class="formula">τ = c + σ tan φ</div>
+    <div class="variables">
+        <p><strong>τ</strong> = shear stress (Pa)</p>
+        <p><strong>c</strong> = cohesion (Pa)</p>
+        <p><strong>σ</strong> = normal stress (Pa)</p>
+        <p><strong>φ</strong> = internal friction angle (degrees)</p>
+    </div>
 
-    <h3>1.6.2 Cone Index (Penetration Resistance)</h3>
+    <h3>Cone Index (CI)</h3>
     <div class="formula">CI = F / A<sub>c</sub></div>
+    <div class="variables">
+        <p><strong>CI</strong> = penetration resistance (Pa)</p>
+        <p><strong>F</strong> = force to push cone (N)</p>
+        <p><strong>A<sub>c</sub></strong> = area of cone base (m²)</p>
+    </div>
 </div>
 
 <div class="section">
     <h2>1.7 Soil Bearing Capacity</h2>
     <div class="formula">
-        q<sub>ult</sub> = cN<sub>c</sub> + σ' N<sub>q</sub> + 0.5γ B N<sub>γ</sub>
+        q<sub>ult</sub> = c N<sub>c</sub> + σ' N<sub>q</sub> + 0.5 γ B N<sub>γ</sub>
+    </div>
+    <div class="variables">
+        <p><strong>q<sub>ult</sub></strong> = ultimate bearing capacity (Pa)</p>
+        <p><strong>σ'</strong> = effective overburden pressure (Pa)</p>
+        <p><strong>B</strong> = width of loaded area (m)</p>
+        <p><strong>γ</strong> = unit weight of soil (N/m³)</p>
+        <p><strong>N<sub>c</sub>, N<sub>q</sub>, N<sub>γ</sub></strong> = bearing capacity factors</p>
     </div>
 </div>
 
@@ -132,26 +200,12 @@
     <div class="formula">
         CI<sub>x</sub> = ((ρ<sub>b,compacted</sub> − ρ<sub>b,initial</sub>) / ρ<sub>b,initial</sub>) × 100%
     </div>
-</div>
-
-<div class="section">
-    <h2>1.9 Summary of Key Equations</h2>
-    <table>
-        <tr><th>Concept</th><th>Formula</th></tr>
-        <tr><td>Bulk density</td><td>ρ<sub>b</sub> = M<sub>s</sub> / V</td></tr>
-        <tr><td>Particle density</td><td>ρ<sub>s</sub> = M<sub>s</sub> / V<sub>s</sub></td></tr>
-        <tr><td>Porosity</td><td>n = 1 − (ρ<sub>b</sub> / ρ<sub>s</sub>)</td></tr>
-        <tr><td>Void ratio</td><td>e = V<sub>v</sub> / V<sub>s</sub></td></tr>
-        <tr><td>Moisture (wb)</td><td>MC<sub>wb</sub> = M<sub>w</sub> / (M<sub>w</sub> + M<sub>s</sub>)</td></tr>
-        <tr><td>Moisture (db)</td><td>MC<sub>db</sub> = M<sub>w</sub> / M<sub>s</sub></td></tr>
-        <tr><td>Volumetric water</td><td>θ = V<sub>w</sub> / V</td></tr>
-        <tr><td>Stress</td><td>σ = F / A</td></tr>
-        <tr><td>Mohr–Coulomb</td><td>τ = c + σ tan φ</td></tr>
-        <tr><td>Cone Index</td><td>CI = F / A<sub>c</sub></td></tr>
-        <tr><td>Bearing capacity</td><td>q<sub>ult</sub> = cN<sub>c</sub> + σ'N<sub>q</sub> + 0.5γBN<sub>γ</sub></td></tr>
-        <tr><td>Compaction index</td><td>CI<sub>x</sub> = (ρ<sub>b,c</sub> − ρ<sub>b,i</sub>) / ρ<sub>b,i</sub></td></tr>
-    </table>
+    <div class="variables">
+        <p><strong>CI<sub>x</sub></strong> = compaction index (%)</p>
+        <p><strong>ρ<sub>b,compacted</sub></strong> = bulk density after compaction (g/cm³)</p>
+        <p><strong>ρ<sub>b,initial</sub></strong> = initial bulk density (g/cm³)</p>
+    </div>
 </div>
 
 </body>
-        </html>
+                                                                                              </html>
