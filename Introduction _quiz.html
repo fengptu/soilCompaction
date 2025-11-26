@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1: Soil Mechanics + Quiz</title>
+<style>
+    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; background: #fdfdfd; }
+    h1, h2, h3 { color: #2b4a69; }
+    .section { margin-bottom: 30px; }
+    .formula { background: #f3f6fa; padding: 10px; border-left: 4px solid #2b4a69; margin: 10px 0; font-family: "Courier New", monospace; }
+    .variables { font-size: 0.95em; margin-left: 15px; }
+    .variables p { margin: 2px 0; }
+    .quiz { background: #eef4fb; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+    .quiz h3 { margin-top: 0; }
+    .btn { background-color: #2b4a69; color: white; padding: 8px 12px; border: none; border-radius: 4px; cursor: pointer; }
+    .btn:hover { background-color: #1e3651; }
+    .feedback { margin-top: 8px; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h1>Module 1: Introduction to Agricultural Soil Mechanics</h1>
+
+<div class="section">
+    <h2>Key Formulas</h2>
+    <div class="formula">ρb = Ms / V</div>
+    <div class="variables">
+        <p>ρb = bulk density (g/cm³)</p>
+        <p>Ms = mass of dry soil solids (g)</p>
+        <p>V = total soil volume (cm³)</p>
+    </div>
+
+    <div class="formula">n = 1 - (ρb / ρs)</div>
+    <div class="variables">
+        <p>n = porosity</p>
+        <p>ρb = bulk density</p>
+        <p>ρs = particle density (~2.65 g/cm³)</p>
+    </div>
+
+    <div class="formula">MCdb = Mw / Ms × 100%</div>
+    <div class="variables">
+        <p>MCdb = moisture content on dry basis (%)</p>
+        <p>Mw = mass of water (g)</p>
+        <p>Ms = mass of dry soil solids (g)</p>
+    </div>
+</div>
+
+<div class="section quiz">
+    <h3>Quiz 1: Bulk Density</h3>
+    <p>Soil sample has dry mass of 120 g and total volume of 100 cm³. What is the bulk density (ρb)?</p>
+    <input type="number" id="q1" placeholder="Enter value in g/cm³">
+    <button class="btn" onclick="checkQ1()">Check Answer</button>
+    <div id="feedback1" class="feedback"></div>
+</div>
+
+<div class="section quiz">
+    <h3>Quiz 2: Porosity</h3>
+    <p>If bulk density ρb = 1.4 g/cm³ and particle density ρs = 2.65 g/cm³, what is the porosity n?</p>
+    <input type="number" id="q2" placeholder="Enter fraction (0-1)" step="0.01">
+    <button class="btn" onclick="checkQ2()">Check Answer</button>
+    <div id="feedback2" class="feedback"></div>
+</div>
+
+<div class="section quiz">
+    <h3>Quiz 3: Dry-Basis Moisture Content</h3>
+    <p>Soil contains 20 g of water and 80 g of dry solids. Calculate MCdb (%).</p>
+    <input type="number" id="q3" placeholder="Enter value (%)">
+    <button class="btn" onclick="checkQ3()">Check Answer</button>
+    <div id="feedback3" class="feedback"></div>
+</div>
+
+<script>
+function checkQ1() {
+    const answer = parseFloat(document.getElementById('q1').value);
+    const correct = 120 / 100; // ρb = Ms/V
+    const feedback = document.getElementById('feedback1');
+    if (Math.abs(answer - correct) < 0.01) {
+        feedback.style.color = 'green';
+        feedback.innerText = 'Correct! ρb = ' + correct.toFixed(2) + ' g/cm³';
+    } else {
+        feedback.style.color = 'red';
+        feedback.innerText = 'Incorrect. Try again.';
+    }
+}
+
+function checkQ2() {
+    const answer = parseFloat(document.getElementById('q2').value);
+    const correct = 1 - (1.4 / 2.65);
+    const feedback = document.getElementById('feedback2');
+    if (Math.abs(answer - correct) < 0.01) {
+        feedback.style.color = 'green';
+        feedback.innerText = 'Correct! n = ' + correct.toFixed(2);
+    } else {
+        feedback.style.color = 'red';
+        feedback.innerText = 'Incorrect. Try again.';
+    }
+}
+
+function checkQ3() {
+    const answer = parseFloat(document.getElementById('q3').value);
+    const correct = 20 / 80 * 100; // MCdb = Mw/Ms*100%
+    const feedback = document.getElementById('feedback3');
+    if (Math.abs(answer - correct) < 0.01) {
+        feedback.style.color = 'green';
+        feedback.innerText = 'Correct! MCdb = ' + correct.toFixed(2) + '%';
+    } else {
+        feedback.style.color = 'red';
+        feedback.innerText = 'Incorrect. Try again.';
+    }
+}
+</script>
+
+</body>
+</html>
