@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1: Research Context & Scholarly Identity — Soil Compaction</title>
+
+<style>
+    body { font-family: Arial, sans-serif; background:#fefae0; padding: 20px; }
+    h1 { color:#593f16; }
+    .box { background:white; padding:20px; border-radius:12px; margin-bottom:25px; box-shadow:0 0 10px #ccc; }
+    .quiz-box { background:#fff3c4; padding:15px; border-radius:10px; margin-top: 10px; }
+    input[type="number"], input[type="text"] { width:150px; padding:5px; }
+    button { background:#bc6c25; color:white; padding:8px 14px; border:none; border-radius:8px; cursor:pointer; }
+    button:hover { background:#a85d1f; }
+</style>
+
+<script>
+// ====================== RANDOM NUMBER GENERATOR ======================
+function generateProblem() {
+    // random ranges (customizable)
+    let bulkDensity = (1.1 + Math.random()*0.7).toFixed(2);   // 1.10–1.80 g/cm3
+    let particleDensity = (2.50 + Math.random()*0.2).toFixed(2); // 2.50–2.70 g/cm3
+
+    document.getElementById("bd_val").innerText = bulkDensity;
+    document.getElementById("pd_val").innerText = particleDensity;
+    document.getElementById("correct_porosity").value = (1 - bulkDensity/particleDensity).toFixed(3);
+
+    document.getElementById("user_porosity").value = "";
+    document.getElementById("result").innerHTML = "";
+}
+
+// ====================== CHECK ANSWER ======================
+function checkPorosity() {
+    let correct = parseFloat(document.getElementById("correct_porosity").value);
+    let user = parseFloat(document.getElementById("user_porosity").value);
+
+    if (isNaN(user)) {
+        document.getElementById("result").innerHTML = "❌ กรุณากรอกคำตอบเป็นตัวเลข";
+        return;
+    }
+
+    if (Math.abs(correct - user) < 0.002) {
+        document.getElementById("result").innerHTML = "✅ ถูกต้อง! porosity = " + correct;
+    } else {
+        document.getElementById("result").innerHTML = "❌ ยังไม่ถูกต้อง — คำตอบที่ถูกต้องคือ " + correct;
+    }
+}
+</script>
+
+</head>
+<body>
+
+<h1>Module 1: Research Context & Scholarly Identity in Soil Compaction Research</h1>
+
+<div class="box">
+    <h2>Assignments Overview</h2>
+    <p>ชุดการบ้านนี้ออกแบบมาเพื่อเสริมสร้างความเข้าใจด้านบริบทงานวิจัย ความหมายเชิงชันสูตรของ Soil Compaction และบทบาทของนักวิจัยสาขาวิศวกรรมเกษตรให้ชัดเจนขึ้น</p>
+</div>
+
+<!-- ===================================================== -->
+<!-- 1. Research-Based Assignment -->
+<!-- ===================================================== -->
+
+<div class="box">
+    <h2>📘 Assignment 1 — Research-Based Exploration</h2>
+    <p><strong>โจทย์:</strong> ค้นคว้าอย่างน้อย 3 บทความจากวารสารนานาชาติที่เกี่ยวข้องกับ <i>Soil Compaction in Agricultural Engineering</i> และจัดทำรายงาน (1–2 หน้า)</p>
+
+    <h3>หัวข้อที่ต้องมี</h3>
+    <ul>
+        <li>วัตถุประสงค์ของแต่ละงานวิจัย</li>
+        <li>ประเภทของการบีบอัดดิน (e.g., load-induced, tillage-induced, traffic-induced)</li>
+        <li>สูตรหรือโมเดลสำคัญที่ใช้ (ดึงจาก Module 1 เช่น stress–strain, compaction index)</li>
+        <li>วิธีการทดลอง เช่น Proctor test, plate sinkage test, cone index</li>
+        <li>ช่องว่างงานวิจัย (Research Gap)</li>
+        <li>สิ่งที่จะนำไปต่อยอดสำหรับงานวิจัยของผู้เรียน</li>
+    </ul>
+</div>
+
+<!-- ===================================================== -->
+<!-- 2. Mini-Report Assignment -->
+<!-- ===================================================== -->
+
+<div class="box">
+    <h2>📗 Assignment 2 — Scholarly Identity Mini-Report</h2>
+    <p><strong>โจทย์:</strong> เขียนรายงานสั้น 1 หน้าเกี่ยวกับ “ตัวตนทางวิชาการ (Scholarly Identity)” ของตนเองในฐานะนักวิจัยด้านวิศวกรรมเกษตร</p>
+
+    <h3>ควรมีประเด็นต่อไปนี้</h3>
+    <ul>
+        <li>หัวข้องานวิจัยที่สนใจ</li>
+        <li>ทฤษฎีหรือสูตรหลักที่ใช้ในการวิเคราะห์ดิน</li>
+        <li>คำอธิบายว่าทำไม soil compaction เป็นหัวข้อสำคัญสำหรับประเทศไทย</li>
+        <li>เป้าหมายระยะยาวด้านวิชาการ</li>
+    </ul>
+</div>
+
+<!-- ===================================================== -->
+<!-- 3. Integrated Numerical Problem with Randomized Numbers -->
+<!-- ===================================================== -->
+
+<div class="box">
+    <h2>📙 Assignment 3 — Integrated Numerical Problem (Randomized)</h2>
+    <p>กดปุ่มด้านล่างเพื่อสุ่มโจทย์ใหม่ทุกครั้ง</p>
+
+    <button onclick="generateProblem()">🎲 สุ่มโจทย์ใหม่</button>
+
+    <div class="quiz-box">
+        <p><b>โจทย์:</b> ให้ค่า bulk density = <span id="bd_val">—</span> g/cm³ และ particle density = <span id="pd_val">—</span> g/cm³  
+        จงคำนวณ porosity ของดิน (สูตร: n = 1 − ρb / ρs)</p>
+
+        <p>
+            <label>กรอกคำตอบ (ทศนิยม 3 ตำแหน่ง):</label><br>
+            <input type="number" id="user_porosity" step="0.001">
+        </p>
+
+        <button onclick="checkPorosity()">ตรวจคำตอบ</button>
+        <p id="result"></p>
+
+        <!-- hidden correct answer -->
+        <input type="hidden" id="correct_porosity">
+    </div>
+</div>
+
+</body>
+</html>
