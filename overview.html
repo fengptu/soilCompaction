@@ -152,6 +152,13 @@
         </footer>
 
     </div>
-
+   <script>
+    function sendHeight() {
+        const height = document.body.scrollHeight;
+         parent.postMessage({ height: height }, "*");
+       }
+       window.onload = sendHeight;
+       window.onresize = sendHeight;
+    </script>
 </body>
 </html>
