@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Module 1: Soil Mechanics + Quiz</title>
+<title>Module 1: Soil Mechanics Full Quiz</title>
 <style>
     body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; background: #fdfdfd; }
     h1, h2, h3 { color: #2b4a69; }
@@ -23,93 +23,195 @@
 <h1>Module 1: Introduction to Agricultural Soil Mechanics</h1>
 
 <div class="section">
-    <h2>Key Formulas</h2>
-    <div class="formula">ρb = Ms / V</div>
-    <div class="variables">
-        <p>ρb = bulk density (g/cm³)</p>
-        <p>Ms = mass of dry soil solids (g)</p>
-        <p>V = total soil volume (cm³)</p>
-    </div>
+<h2>Key Formulas</h2>
 
-    <div class="formula">n = 1 - (ρb / ρs)</div>
-    <div class="variables">
-        <p>n = porosity</p>
-        <p>ρb = bulk density</p>
-        <p>ρs = particle density (~2.65 g/cm³)</p>
-    </div>
+<div class="formula">ρb = Ms / V</div>
+<div class="variables">
+<p>ρb = bulk density (g/cm³)</p>
+<p>Ms = mass of dry soil solids (g)</p>
+<p>V = total soil volume (cm³)</p>
+</div>
 
-    <div class="formula">MCdb = Mw / Ms × 100%</div>
-    <div class="variables">
-        <p>MCdb = moisture content on dry basis (%)</p>
-        <p>Mw = mass of water (g)</p>
-        <p>Ms = mass of dry soil solids (g)</p>
-    </div>
+<div class="formula">ρs = Ms / Vs</div>
+<div class="variables">
+<p>ρs = particle density (g/cm³)</p>
+<p>Vs = volume of soil solids (cm³)</p>
+</div>
+
+<div class="formula">n = 1 − (ρb / ρs)</div>
+<div class="variables">
+<p>n = porosity (fraction)</p>
+</div>
+
+<div class="formula">e = Vv / Vs</div>
+<div class="variables">
+<p>e = void ratio</p>
+<p>Vv = volume of voids = Vw + Va</p>
+</div>
+
+<div class="formula">MCwb = Mw / (Mw + Ms) × 100%</div>
+<div class="variables">
+<p>MCwb = moisture content (wet basis) %</p>
+<p>Mw = mass of water (g)</p>
+<p>Ms = mass of dry soil solids (g)</p>
+</div>
+
+<div class="formula">MCdb = Mw / Ms × 100%</div>
+<div class="variables">
+<p>MCdb = moisture content (dry basis) %</p>
+</div>
+
+<div class="formula">θ = Vw / V</div>
+<div class="variables">
+<p>θ = volumetric water content (fraction)</p>
+</div>
+
+<div class="formula">θ = MCdb × (ρb / ρw)</div>
+<div class="variables">
+<p>ρw = water density (~1 g/cm³)</p>
+</div>
+
+<div class="formula">σ = F / A</div>
+<div class="variables">
+<p>σ = normal stress (Pa)</p>
+<p>F = applied force (N)</p>
+<p>A = contact area (m²)</p>
+</div>
+
+<div class="formula">σz = (3P / (2π z²)) × [1 / (1 + (r/z)²)<sup>5/2</sup>]</div>
+<div class="variables">
+<p>σz = vertical stress at depth z (Pa)</p>
+<p>P = point load (N)</p>
+<p>z = depth from surface (m)</p>
+<p>r = radial distance from load center (m)</p>
+</div>
+
+<div class="formula">τ = c + σ tan φ</div>
+<div class="variables">
+<p>τ = shear stress (Pa)</p>
+<p>c = cohesion (Pa)</p>
+<p>σ = normal stress (Pa)</p>
+<p>φ = internal friction angle (degrees)</p>
+</div>
+
+<div class="formula">CI = F / Ac</div>
+<div class="variables">
+<p>CI = cone index (Pa)</p>
+<p>F = force to push cone (N)</p>
+<p>Ac = area of cone base (m²)</p>
+</div>
+
+<div class="formula">qult = c Nc + σ' Nq + 0.5 γ B Nγ</div>
+<div class="variables">
+<p>qult = ultimate bearing capacity (Pa)</p>
+<p>σ' = effective overburden pressure (Pa)</p>
+<p>B = width of loaded area (m)</p>
+<p>γ = unit weight of soil (N/m³)</p>
+<p>Nc, Nq, Nγ = bearing capacity factors</p>
+</div>
+
+<div class="formula">CIx = ((ρb,compacted − ρb,initial) / ρb,initial) × 100%</div>
+<div class="variables">
+<p>CIx = compaction index (%)</p>
+<p>ρb,compacted = bulk density after compaction (g/cm³)</p>
+<p>ρb,initial = initial bulk density (g/cm³)</p>
+</div>
+</div>
+
+<h2>Interactive Quiz</h2>
+
+<div class="section quiz">
+<h3>Quiz 1: Bulk Density</h3>
+<p>Ms = 150 g, V = 120 cm³. What is ρb?</p>
+<input type="number" id="q1" step="0.01" placeholder="g/cm³">
+<button class="btn" onclick="checkQ1()">Check Answer</button>
+<div id="feedback1" class="feedback"></div>
 </div>
 
 <div class="section quiz">
-    <h3>Quiz 1: Bulk Density</h3>
-    <p>Soil sample has dry mass of 120 g and total volume of 100 cm³. What is the bulk density (ρb)?</p>
-    <input type="number" id="q1" placeholder="Enter value in g/cm³">
-    <button class="btn" onclick="checkQ1()">Check Answer</button>
-    <div id="feedback1" class="feedback"></div>
+<h3>Quiz 2: Particle Density</h3>
+<p>Ms = 150 g, Vs = 57 cm³. Calculate ρs.</p>
+<input type="number" id="q2" step="0.01" placeholder="g/cm³">
+<button class="btn" onclick="checkQ2()">Check Answer</button>
+<div id="feedback2" class="feedback"></div>
 </div>
 
 <div class="section quiz">
-    <h3>Quiz 2: Porosity</h3>
-    <p>If bulk density ρb = 1.4 g/cm³ and particle density ρs = 2.65 g/cm³, what is the porosity n?</p>
-    <input type="number" id="q2" placeholder="Enter fraction (0-1)" step="0.01">
-    <button class="btn" onclick="checkQ2()">Check Answer</button>
-    <div id="feedback2" class="feedback"></div>
+<h3>Quiz 3: Porosity</h3>
+<p>ρb = 1.4 g/cm³, ρs = 2.65 g/cm³. What is n?</p>
+<input type="number" id="q3" step="0.01" placeholder="fraction 0-1">
+<button class="btn" onclick="checkQ3()">Check Answer</button>
+<div id="feedback3" class="feedback"></div>
 </div>
 
 <div class="section quiz">
-    <h3>Quiz 3: Dry-Basis Moisture Content</h3>
-    <p>Soil contains 20 g of water and 80 g of dry solids. Calculate MCdb (%).</p>
-    <input type="number" id="q3" placeholder="Enter value (%)">
-    <button class="btn" onclick="checkQ3()">Check Answer</button>
-    <div id="feedback3" class="feedback"></div>
+<h3>Quiz 4: Void Ratio</h3>
+<p>Vv = 60 cm³, Vs = 120 cm³. Calculate e.</p>
+<input type="number" id="q4" step="0.01" placeholder="e">
+<button class="btn" onclick="checkQ4()">Check Answer</button>
+<div id="feedback4" class="feedback"></div>
+</div>
+
+<div class="section quiz">
+<h3>Quiz 5: Wet-Basis Moisture Content</h3>
+<p>Mw = 20 g, Ms = 80 g. Calculate MCwb (%).</p>
+<input type="number" id="q5" step="0.1" placeholder="%">
+<button class="btn" onclick="checkQ5()">Check Answer</button>
+<div id="feedback5" class="feedback"></div>
+</div>
+
+<div class="section quiz">
+<h3>Quiz 6: Dry-Basis Moisture Content</h3>
+<p>Mw = 20 g, Ms = 80 g. Calculate MCdb (%).</p>
+<input type="number" id="q6" step="0.1" placeholder="%">
+<button class="btn" onclick="checkQ6()">Check Answer</button>
+<div id="feedback6" class="feedback"></div>
+</div>
+
+<div class="section quiz">
+<h3>Quiz 7: Volumetric Water Content</h3>
+<p>Vw = 40 cm³, V = 100 cm³. Calculate θ.</p>
+<input type="number" id="q7" step="0.01" placeholder="fraction">
+<button class="btn" onclick="checkQ7()">Check Answer</button>
+<div id="feedback7" class="feedback"></div>
+</div>
+
+<div class="section quiz">
+<h3>Quiz 8: Normal Stress</h3>
+<p>F = 500 N, A = 0.25 m². Calculate σ.</p>
+<input type="number" id="q8" step="0.1" placeholder="Pa">
+<button class="btn" onclick="checkQ8()">Check Answer</button>
+<div id="feedback8" class="feedback"></div>
+</div>
+
+<div class="section quiz">
+<h3>Quiz 9: Shear Stress (Mohr–Coulomb)</h3>
+<p>c = 20 kPa, σ = 50 kPa, φ = 30°. Calculate τ.</p>
+<input type="number" id="q9" step="0.1" placeholder="Pa">
+<button class="btn" onclick="checkQ9()">Check Answer</button>
+<div id="feedback9" class="feedback"></div>
+</div>
+
+<div class="section quiz">
+<h3>Quiz 10: Compaction Index</h3>
+<p>ρb,compacted = 1.6 g/cm³, ρb,initial = 1.4 g/cm³. Calculate CIx (%).</p>
+<input type="number" id="q10" step="0.1" placeholder="%">
+<button class="btn" onclick="checkQ10()">Check Answer</button>
+<div id="feedback10" class="feedback"></div>
 </div>
 
 <script>
-function checkQ1() {
-    const answer = parseFloat(document.getElementById('q1').value);
-    const correct = 120 / 100; // ρb = Ms/V
-    const feedback = document.getElementById('feedback1');
-    if (Math.abs(answer - correct) < 0.01) {
-        feedback.style.color = 'green';
-        feedback.innerText = 'Correct! ρb = ' + correct.toFixed(2) + ' g/cm³';
-    } else {
-        feedback.style.color = 'red';
-        feedback.innerText = 'Incorrect. Try again.';
-    }
-}
-
-function checkQ2() {
-    const answer = parseFloat(document.getElementById('q2').value);
-    const correct = 1 - (1.4 / 2.65);
-    const feedback = document.getElementById('feedback2');
-    if (Math.abs(answer - correct) < 0.01) {
-        feedback.style.color = 'green';
-        feedback.innerText = 'Correct! n = ' + correct.toFixed(2);
-    } else {
-        feedback.style.color = 'red';
-        feedback.innerText = 'Incorrect. Try again.';
-    }
-}
-
-function checkQ3() {
-    const answer = parseFloat(document.getElementById('q3').value);
-    const correct = 20 / 80 * 100; // MCdb = Mw/Ms*100%
-    const feedback = document.getElementById('feedback3');
-    if (Math.abs(answer - correct) < 0.01) {
-        feedback.style.color = 'green';
-        feedback.innerText = 'Correct! MCdb = ' + correct.toFixed(2) + '%';
-    } else {
-        feedback.style.color = 'red';
-        feedback.innerText = 'Incorrect. Try again.';
-    }
-}
+function checkQ1(){const a=parseFloat(document.getElementById('q1').value);const c=150/120;const f=document.getElementById('feedback1');f.style.color=(Math.abs(a-c)<0.01)?'green':'red';f.innerText=(Math.abs(a-c)<0.01)?'Correct! ρb='+c.toFixed(2)+' g/cm³':'Incorrect. Try again.';}
+function checkQ2(){const a=parseFloat(document.getElementById('q2').value);const c=150/57;const f=document.getElementById('feedback2');f.style.color=(Math.abs(a-c)<0.01)?'green':'red';f.innerText=(Math.abs(a-c)<0.01)?'Correct! ρs='+c.toFixed(2)+' g/cm³':'Incorrect. Try again.';}
+function checkQ3(){const a=parseFloat(document.getElementById('q3').value);const c=1-(1.4/2.65);const f=document.getElementById('feedback3');f.style.color=(Math.abs(a-c)<0.01)?'green':'red';f.innerText=(Math.abs(a-c)<0.01)?'Correct! n='+c.toFixed(2):'Incorrect. Try again.';}
+function checkQ4(){const a=parseFloat(document.getElementById('q4').value);const c=60/120;const f=document.getElementById('feedback4');f.style.color=(Math.abs(a-c)<0.01)?'green':'red';f.innerText=(Math.abs(a-c)<0.01)?'Correct! e='+c.toFixed(2):'Incorrect. Try again.';}
+function checkQ5(){const a=parseFloat(document.getElementById('q5').value);const c=20/(20+80)*100;const f=document.getElementById('feedback5');f.style.color=(Math.abs(a-c)<0.01)?'green':'red';f.innerText=(Math.abs(a-c)<0.01)?'Correct! MCwb='+c.toFixed(2)+'%':'Incorrect. Try again.';}
+function checkQ6(){const a=parseFloat(document.getElementById('q6').value);const c=20/80*100;const f=document.getElementById('feedback6');f.style.color=(Math.abs(a-c)<0.01)?'green':'red';f.innerText=(Math.abs(a-c)<0.01)?'Correct! MCdb='+c.toFixed(2)+'%':'Incorrect. Try again.';}
+function checkQ7(){const a=parseFloat(document.getElementById('q7').value);const c=40/100;const f=document.getElementById('feedback7');f.style.color=(Math.abs(a-c)<0.01)?'green':'red';f.innerText=(Math.abs(a-c)<0.01)?'Correct! θ='+c.toFixed(2):'Incorrect. Try again.';}
+function checkQ8(){const a=parseFloat(document.getElementById('q8').value);const c=500/0.25;const f=document.getElementById('feedback8');f.style.color=(Math.abs(a-c)<0.01)?'green':'red';f.innerText=(Math.abs(a-c)<0.01)?'Correct! σ='+c.toFixed(2)+' Pa':'Incorrect. Try again.';}
+function checkQ9(){const a=parseFloat(document.getElementById('q9').value);const c=20+50*Math.tan(30*Math.PI/180);const f=document.getElementById('feedback9');f.style.color=(Math.abs(a-c)<0.01)?'green':'red';f.innerText=(Math.abs(a-c)<0.01)?'Correct! τ='+c.toFixed(2)+' kPa':'Incorrect. Try again.';}
+function checkQ10(){const a=parseFloat(document.getElementById('q10').value);const c=(1.6-1.4)/1.4*100;const f=document.getElementById('feedback10');f.style.color=(Math.abs(a-c)<0.01)?'green':'red';f.innerText=(Math.abs(a-c)<0.01)?'Correct! CIx='+c.toFixed(2)+'%':'Incorrect. Try again.';}
 </script>
 
 </body>
-</html>
+    </html>
