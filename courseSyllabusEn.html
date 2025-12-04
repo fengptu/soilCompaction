@@ -1,278 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>02201612 Course Syllabus - Soil Compaction in Agricultural Engineering</title>
-    <style>
-        body { font-family: 'Tahoma', sans-serif; margin: 20px; line-height: 1.6; }
-        .container { max-width: 1000px; margin: auto; }
-        h1, h2, h3 { color: #006633; border-bottom: 2px solid #ccc; padding-bottom: 5px; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; vertical-align: top; }
-        th { background-color: #f2f2f2; font-weight: bold; }
-        .header-info td:first-child { width: 30%; font-weight: bold; }
-        .main-info td:first-child { width: 35%; font-weight: bold; }
-        .credit-box { font-size: 1.1em; color: #333; }
-        .section-header { background-color: #e6ffe6; padding: 10px; margin-top: 20px; border-radius: 5px; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02201612 Course Specification - Soil Compaction in Agricultural Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern Reset & Base Styles */
+        :root {
+            --primary-color: #007BFF; /* สีน้ำเงินเข้มหลัก */
+            --secondary-color: #28a745; /* สีเขียวสำหรับเน้น */
+            --header-bg: #f8f9fa; /* พื้นหลังส่วนหัว/หัวข้อ */
+            --border-color: #e9ecef; /* สีเส้นขอบอ่อน */
+            --text-color: #343a40; /* สีข้อความเข้ม */
+            --sub-text-color: #6c757d; /* สีข้อความรอง */
+            --table-header-bg: #e9ecef;
+            --credit-bg: #d4edda;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            background-color: #f4f7f6; /* พื้นหลังอ่อนนุ่ม */
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff; /* พื้นหลังเนื้อหาสีขาว */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* เงาดูทันสมัย */
+            border-radius: 12px;
+        }
+
+        /* Typography */
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: var(--sub-text-color);
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: 400;
+            margin-top: 0;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            color: var(--text-color);
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-top: 30px;
+        }
+        
+        h4 {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin-top: 25px;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 10px;
+            font-weight: 600;
+        }
+
+        /* Section Header - ใช้ Box ที่มีสีอ่อน */
+        .section-header {
+            background-color: var(--header-bg);
+            padding: 15px 20px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 6px solid var(--secondary-color);
+        }
+        .section-header h3 {
+            margin: 0;
+            color: var(--text-color);
+            border-bottom: none;
+            padding-bottom: 0;
+            font-size: 1.4em;
+        }
+        
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            overflow: hidden; /* เพื่อให้ขอบมุมกลมทำงานกับเส้นขอบ */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            text-align: left;
+            vertical-align: top;
+            font-weight: 400;
+        }
+
+        th {
+            background-color: var(--table-header-bg);
+            font-weight: 600;
+            color: var(--text-color);
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        /* Specific Table Styling */
+        .header-info td:first-child, .main-info td:first-child {
+            width: 30%;
+            font-weight: 600;
+            color: var(--primary-color);
+            background-color: #f0f8ff; /* สีอ่อนๆ สำหรับเน้นหัวข้อตาราง */
+        }
+        
+        .credit-box { 
+            font-size: 1.2em; 
+            font-weight: 700;
+            color: #155724; 
+            background-color: var(--credit-bg); /* พื้นหลังสีเขียวอ่อน */
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* List Styling */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            padding-left: 1.5em;
+            position: relative;
+            margin-bottom: 8px;
+        }
+        ul li::before {
+            content: '✓'; /* ใช้เครื่องหมายถูกแทนจุด */
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            table, th, td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .header-info td:first-child, .main-info td:first-child {
+                width: 100%;
+                display: block;
+                border-bottom: none;
+            }
+            th {
+                display: none; /* ซ่อนหัวตารางในมือถือเพื่อให้ข้อมูลไม่ซ้ำซ้อน */
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Course Specification (TQF. 3)</h1>
-        <h2>02201612 การอัดแน่นของดินทางวิศวกรรมเกษตร</h2>
-        <h2>Soil Compaction in Agricultural Engineering</h2>
+    <div class="container">
+        
+        <header>
+            <h1>Course Specification (TQF. 3)</h1>
+            <h2>02201612 การอัดแน่นของดินทางวิศวกรรมเกษตร</h2>
+            <h2>Soil Compaction in Agricultural Engineering</h2>
+        </header>
 
-        <div class="section-header">
-            <h3>Section 1: General Information</h3>
-        </div>
-        <table>
-            <tr class="header-info">
-                <td>Name of Higher Education Institution</td>
-                <td>Kasetsart University</td>
-            </tr>
-            <tr class="header-info">
-                <td>Campus/Faculty/Department</td>
-                <td>Kamphaeng Saen Campus/Faculty of Engineering at Kamphaeng Saen/Department of Agricultural Engineering</td>
-            </tr>
-        </table>
+        <div class="section-header">
+            <h3>📝 Section 1: General Information</h3>
+        </div>
+        <table>
+            <tr class="header-info">
+                <td>Name of Higher Education Institution</td>
+                <td>Kasetsart University</td>
+            </tr>
+            <tr class="header-info">
+                <td>Campus/Faculty/Department</td>
+                <td>Kamphaeng Saen Campus/Faculty of Engineering at Kamphaeng Saen/Department of Agricultural Engineering</td>
+            </tr>
+        </table>
 
-        <table>
-            <tr class="main-info">
-                <td>1. Course Code and Name</td>
-                <td>02201612 Soil Compaction in Agricultural Engineering (การอัดแน่นของดินทางวิศวกรรมเกษตร)</td>
-            </tr>
-            <tr class="main-info">
-                <td>2. Credits</td>
-                <td class="credit-box">3 Credits (3-0-6)</td>
-            </tr>
-            <tr class="main-info">
-                <td>3. Program and Course Type</td>
-                <td>Bachelor of Engineering Program in Agricultural Engineering, Specific Field Course (Elective)</td>
-            </tr>
-            <tr class="main-info">
-                <td>4. Course Coordinator and Instructor</td>
-                <td>Mr. Prateung Usaborisut</td>
-            </tr>
-            <tr class="main-info">
-                <td>5. Pre-requisites</td>
-                <td>None</td>
-            </tr>
-            <tr class="main-info">
-                <td>6. Co-requisites</td>
-                <td>None</td>
-            </tr>
-            <tr class="main-info">
-                <td>7. Venue</td>
-                <td>Kamphaeng Saen Campus</td>
-            </tr>
-        </table>
+        <table>
+            <tr class="main-info">
+                <td>1. Course Code and Name</td>
+                <td>**02201612** Soil Compaction in Agricultural Engineering (การอัดแน่นของดินทางวิศวกรรมเกษตร)</td>
+            </tr>
+            <tr class="main-info">
+                <td>2. Credits</td>
+                <td><span class="credit-box">3 Credits (3-0-6)</span></td>
+            </tr>
+            <tr class="main-info">
+                <td>3. Program and Course Type</td>
+                <td>Bachelor of Engineering Program in Agricultural Engineering, Specific Field Course (**Elective**)</td>
+            </tr>
+            <tr class="main-info">
+                <td>4. Course Coordinator and Instructor</td>
+                <td>Mr. Prateung Usaborisut</td>
+            </tr>
+            <tr class="main-info">
+                <td>5. Pre-requisites</td>
+                <td>None</td>
+            </tr>
+            <tr class="main-info">
+                <td>6. Co-requisites</td>
+                <td>None</td>
+            </tr>
+            <tr class="main-info">
+                <td>7. Venue</td>
+                <td>Kamphaeng Saen Campus</td>
+            </tr>
+        </table>
 
-        <div class="section-header">
-            <h3>Section 2: Aims and Objectives</h3>
-        </div>
-        <table>
-            <tr>
-                <th>Course Aim</th>
-                <td>To enable students to learn content related to soil compaction in agricultural engineering.</td>
-            </tr>
-            <tr>
-                <th>Objectives for Course Development/Improvement</th>
-                <td>To gain knowledge and understanding of new technologies in soil compaction in agricultural engineering.</td>
-            </tr>
-        </table>
+        <div class="section-header">
+            <h3>🎯 Section 2: Aims and Objectives</h3>
+        </div>
+        <table>
+            <tr>
+                <th>Course Aim</th>
+                <td>To enable students to learn content related to **soil compaction** in agricultural engineering.</td>
+            </tr>
+            <tr>
+                <th>Objectives for Course Development/Improvement</th>
+                <td>To gain knowledge and understanding of new technologies in soil compaction in agricultural engineering.</td>
+            </tr>
+        </table>
 
-        <div class="section-header">
-            <h3>Section 3: Characteristics and Operation</h3>
-        </div>
-        <h4>1. Course Description</h4>
-        <ul>
-            <li>Agricultural soil mechanics, soil dynamics, identification and effects of soil compaction, relationship of machines and soil compaction, soil compaction and crop production, management of soil compaction.</li>
-            <li>กลศาสตร์ของดินในการเกษตร พลศาสตร์ของดิน การบ่งบอกและผลของการอัดแน่นของดิน ความสัมพันธ์ระหว่างเครื่องจักรกลและการอัดแน่นของดิน การอัดแน่นของดินและการผลิตพืช การจัดการการอัดแน่นของดิน</li>
-        </ul>
+        <div class="section-header">
+            <h3>⚙️ Section 3: Characteristics and Operation</h3>
+        </div>
+        
+        <h4>1. Course Description</h4>
+        <ul>
+            <li>Agricultural soil mechanics, soil dynamics, identification and effects of soil compaction, relationship of machines and soil compaction, soil compaction and crop production, management of soil compaction.</li>
+            <li>กลศาสตร์ของดินในการเกษตร พลศาสตร์ของดิน การบ่งบอกและผลของการอัดแน่นของดิน ความสัมพันธ์ระหว่างเครื่องจักรกลและการอัดแน่นของดิน การอัดแน่นของดินและการผลิตพืช การจัดการการอัดแน่นของดิน</li>
+        </ul>
 
-        <h4>2. Total Hours per Semester</h4>
-        <table>
-            <tr>
-                <th>Lecture</th>
-                <th>Supplementary Teaching</th>
-                <th>Practice/Fieldwork/Internship</th>
-                <th>Self-Study</th>
-            </tr>
-            <tr>
-                <td>45 hours (3 hours per week)</td>
-                <td>0 hours</td>
-                <td>0 hours</td>
-                <td>90 hours (6 hours per week)</td>
-            </tr>
-        </table>
+        <h4>2. Total Hours per Semester</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Lecture</th>
+                    <th>Supplementary Teaching</th>
+                    <th>Practice/Fieldwork/Internship</th>
+                    <th>Self-Study</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>**45 hours** (3 hours per week)</td>
+                    <td>0 hours</td>
+                    <td>0 hours</td>
+                    <td>**90 hours** (6 hours per week)</td>
+                </tr>
+            </tbody>
+        </table>
 
-        <h4>3. Academic Advising and Mentoring for Students</h4>
-        <p>Advising Method: By meeting during the instructor's free time or via social media.</p>
-        <p>Total Hours per Semester: Specified in the document.</p>
-        
-        <div class="section-header">
-            <h3>Course Learning Outcomes (CLOs) in response to PLO1: Advanced Research and Development to Create New High-Impact Knowledge</h3>
-        </div>
-        <table>
-            <tr>
-                <th>CLO</th>
-                <th>CLO Description</th>
-            </tr>
-            <tr>
-                <td>CLO 1</td>
-                <td>Analyze and evaluate soil compaction phenomena by integrating the principles of soil mechanics and soil dynamics to identify complex problems with research potential.</td>
-            </tr>
-            <tr>
-                <td>CLO 2</td>
-                <td>Design and propose research approaches for identifying and assessing the diverse effects of soil compaction, and create hypotheses or theoretical/computational models to explain the phenomena.</td>            </tr>
-            <tr>
-                <td>CLO 3</td>
-                <td>Develop or improve soil compaction management strategies by deeply considering the relationship between machinery and soil compaction, and evaluate potential impacts on crop production to create innovative methods that are more highly effective than conventional methods.</td>
-            </tr>
-            <tr>
-                <td>CLO 4</td>
-                <td>Synthesize and present work in the form of standard research papers/academic reports, capable of linking soil compaction concepts with new technologies and demonstrating the potential to create new knowledge that can lead to actual problem-solving in the agricultural industry.</td>
-            </tr>
-        </table>
-        
-                <div class="section-header">
-            <h3>Section 4: Teaching Plan and Assessment</h3>
-        </div>
-        
-        <h4>1. Teaching Plan</h4>
-        <table>
-            <tr>
-                <th rowspan="2">Week</th>
-                <th rowspan="2">Topic/Details</th>
-                <th colspan="2">Hours</th>
-                <th rowspan="2">Related CLO</th>
-                <th rowspan="2">Teaching/Learning Activities and Media Used</th>
-                <th rowspan="2">Instructor</th>
-                <th rowspan="2">Related LLOs (Learner Learning Outcomes)</th>
-            </tr>
-            <tr>
-                <th>Theory</th>
-                <th>Practice</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Introduction</td>
-                <td>3</td>
-                <td>0</td>
-                <td>CLO 1</td>
-                <td>Lecture</td>
-                <td>Mr. Prathuang Usaborisut</td>
-                <td>LLO 1.1: Define complex and potentially new knowledge-creating initial research problems.</td>
-            </tr>
-            <tr>
-                <td>2-3</td>
-                <td>Agricultural soil mechanics</td>
-                <td>6</td>
-                <td>0</td>
-                <td>CLO 1</td>
-                <td>Lecture</td>
-                <td>Mr. Pratuang Usaborisut</td>
-                <td>LLO 1.2: Explain and compare the differences in compaction conditions under the principles of Agricultural soil mechanics and Soil dynamics.</td>
-            </tr>
-            <tr>
-                <td>4-5</td>
-                <td>Soil dynamics</td>
-                <td>6</td>
-                <td>0</td>
-                <td>CLO 1</td>
-                <td>Lecture</td>
-                <td>Mr. Prathuang Usaborisut</td>
-                <td>LLO 1.2: Explain and compare the differences in compaction conditions under the principles of Agricultural soil mechanics and Soil dynamics.</td>
-            </tr>
-            <tr>
-                <td>6-8</td>
-                <td>Identification and effects of soil compaction</td>
-                <td>9</td>
-                <td>0</td>
-                <td>CLO 2</td>
-                <td>Lecture</td>
-                <td>Mr. Prathuang Usaborisut</td>
-                <td>LLO 2.1: Design research methodology for identification and assessment of effects. LLO 2.2: Develop hypotheses or propose model outlines to explain unprecedented phenomena.</td>
-            </tr>
-            <tr>
-                <td>9-10</td>
-                <td>Relationship of machines and soil compaction</td>
-                <td>6</td>
-                <td>0</td>
-                <td>CLO 3</td>
-                <td>Lecture</td>
-                <td>Mr. Prathuang Usaborisut</td>
-                <td>LLO 3.1: Evaluate the efficiency and limitations of current management strategies. LLO 3.2: Synthesize and propose innovative strategies (e.g., using machinery control technology).</td>
-            </tr>
-            <tr>
-                <td>11-13</td>
-                <td>Soil compaction and crop production</td>
-                <td>9</td>
-                <td>0</td>
-                <td>CLO 3, CLO 4</td>
-                <td>Lecture</td>
-                <td>Mr. Prathuang Usaborisut</td>
-                <td>LLO 3.2: Synthesize and propose innovative soil compaction management strategies.</td>
-            </tr>
-            <tr>
-                <td>14-15</td>
-                <td>Management of soil compaction</td>
-                <td>9</td>
-                <td>0</td>
-                <td>CLO 4</td>
-                <td>Lecture</td>
-                <td>Mr. Prathuang Usaborisut</td>
-                <td>LLO 4.1: Prepare an academic report with established format and standards. LLO 4.2: Clearly and logically present and discuss one's own research work.</td>
-            </tr>
-        </table>
-        
-        <h4>2. Assessment</h4>
-        <table>
-            <tr>
-                <th>Activity No.</th>
-                <th>Assessment Activity</th>
-                <th>Assessment Week</th>
-                <th>Weight (%) of Assessment</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Written Examination</td>
-                <td>Exam Week</td>
-                <td>80%</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Exercises, Homework, Report Writing (including analytical/innovative reports)</td>
-                <td>Every Week</td>
-                <td>20%</td>
-            </tr>
-        </table>
+        <h4>3. Academic Advising and Mentoring for Students</h4>
+        <p><strong>Advising Method:</strong> By meeting during the instructor's free time or via social media.</p>
+        <p><strong>Total Hours per Semester:</strong> Specified in the document.</p>
+        
+        <div class="section-header">
+            <h3>💡 Course Learning Outcomes (CLOs)</h3>
+        </div>
+        <p class="mb-3" style="font-style: italic; color: var(--sub-text-color);">in response to PLO1: Advanced Research and Development to Create New High-Impact Knowledge</p>
 
-        <div class="section-header">
-            <h3>Section 5: Learning Resources</h3>
-        </div>
-        <table>
-            <tr>
-                <th colspan="2">1. Essential Documents and Texts</th>
-                <th>Type</th>
-            </tr>
-            <tr>
-                <td colspan="2">Soil Compaction in Crop Production, B.D. Soane and C. van Ouwerkerk, Elsevier Science, Amsterdam, 2000, 640p.</td>
-                <td>Main Textbook</td>
-            </tr>
-            <tr>
-                <th colspan="2">2. Important Documents and Data</th>
-                <td></td>
-            </tr>
-            <tr>
-                <td colspan="2">1. Course Website</td>
-                <td></td>
-            </tr>
-        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 10%;">CLO</th>
+                    <th>CLO Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>**CLO 1**</td>
+                    <td>**Analyze and evaluate** soil compaction phenomena by integrating the principles of soil mechanics and soil dynamics to identify complex problems with research potential.</td>
+                </tr>
+                <tr>
+                    <td>**CLO 2**</td>
+                    <td>**Design and propose** research approaches for identifying and assessing the diverse effects of soil compaction, and create hypotheses or theoretical/computational models to explain the phenomena.</td>                   
+                </tr>
+                <tr>
+                    <td>**CLO 3**</td>
+                    <td>**Develop or improve** soil compaction management strategies by deeply considering the relationship between machinery and soil compaction, and evaluate potential impacts on crop production to create innovative methods that are more highly effective than conventional methods.</td>
+                </tr>
+                <tr>
+                    <td>**CLO 4**</td>
+                    <td>**Synthesize and present** work in the form of standard research papers/academic reports, capable of linking soil compaction concepts with new technologies and demonstrating the potential to create new knowledge that can lead to actual problem-solving in the agricultural industry.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="section-header">
+            <h3>🗓️ Section 4: Teaching Plan and Assessment</h3>
+        </div>
+        
+        <h4>1. Teaching Plan</h4>
+        <div style="overflow-x: auto;"> <table style="min-width: 900px;">
+                <thead>
+                    <tr>
+                        <th rowspan="2">Week</th>
+                        <th rowspan="2" style="width: 25%;">Topic/Details</th>
+                        <th colspan="2" style="text-align: center;">Hours</th>
+                        <th rowspan="2">Related CLO</th>
+                        <th rowspan="2" style="width: 25%;">Teaching/Learning Activities and Media Used</th>
+                        <th rowspan="2">Instructor</th>
+                        <th rowspan="2">Related LLOs (Learner Learning Outcomes)</th>
+                    </tr>
+                    <tr>
+                        <th style="width: 5%;">Theory</th>
+                        <th style="width: 5%;">Practice</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Introduction</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>CLO 1</td>
+                        <td>Lecture, Discussion on Research Scope</td>
+                        <td>Mr. P. Usaborisut</td>
+                        <td>LLO 1.1: Define complex and potentially new knowledge-creating initial research problems.</td>
+                    </tr>
+                    <tr>
+                        <td>2-3</td>
+                        <td>Agricultural soil mechanics</td>
+                        <td>6</td>
+                        <td>0</td>
+                        <td>CLO 1</td>
+                        <td>Lecture, Case Studies</td>
+                        <td>Mr. P. Usaborisut</td>
+                        <td>LLO 1.2: Explain and compare the differences in compaction conditions under the principles of Agricultural soil mechanics and Soil dynamics.</td>
+                    </tr>
+                    <tr>
+                        <td>4-5</td>
+                        <td>Soil dynamics</td>
+                        <td>6</td>
+                        <td>0</td>
+                        <td>CLO 1</td>
+                        <td>Lecture, Problem Solving</td>
+                        <td>Mr. P. Usaborisut</td>
+                        <td>LLO 1.2: Explain and compare the differences in compaction conditions under the principles of Agricultural soil mechanics and Soil dynamics.</td>
+                    </tr>
+                    <tr>
+                        <td>6-8</td>
+                        <td>Identification and effects of soil compaction</td>
+                        <td>9</td>
+                        <td>0</td>
+                        <td>CLO 2</td>
+                        <td>Lecture, Group Project Start</td>
+                        <td>Mr. P. Usaborisut</td>
+                        <td>LLO 2.1: Design research methodology... LLO 2.2: Develop hypotheses or propose model outlines...</td>
+                    </tr>
+                    <tr>
+                        <td>9-10</td>
+                        <td>Relationship of machines and soil compaction</td>
+                        <td>6</td>
+                        <td>0</td>
+                        <td>CLO 3</td>
+                        <td>Lecture, Analysis of Machinery Data</td>
+                        <td>Mr. P. Usaborisut</td>
+                        <td>LLO 3.1: Evaluate the efficiency... LLO 3.2: Synthesize and propose innovative strategies...</td>
+                    </tr>
+                    <tr>
+                        <td>11-13</td>
+                        <td>Soil compaction and crop production</td>
+                        <td>9</td>
+                        <td>0</td>
+                        <td>CLO 3, CLO 4</td>
+                        <td>Lecture, Research Paper Review</td>
+                        <td>Mr. P. Usaborisut</td>
+                        <td>LLO 3.2: Synthesize and propose innovative soil compaction management strategies.</td>
+                    </tr>
+                    <tr>
+                        <td>14-15</td>
+                        <td>Management of soil compaction</td>
+                        <td>9</td>
+                        <td>0</td>
+                        <td>CLO 4</td>
+                        <td>Lecture, **Final Report Submission & Presentation**</td>
+                        <td>Mr. P. Usaborisut</td>
+                        <td>LLO 4.1: Prepare an academic report... LLO 4.2: Clearly and logically present...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h4>2. Assessment</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Activity No.</th>
+                    <th>Assessment Activity</th>
+                    <th>Assessment Week</th>
+                    <th>Weight (%) of Assessment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>**1**</td>
+                    <td>Written Examination</td>
+                    <td>Exam Week</td>
+                    <td>**80%**</td>
+                </tr>
+                <tr>
+                    <td>**2**</td>
+                    <td>Exercises, Homework, Report Writing (including analytical/innovative reports)</td>
+                    <td>Every Week</td>
+                    <td>**20%**</td>
+                </tr>
+            </tbody>
+        </table>
 
-    </div>
+        <div class="section-header">
+            <h3>📚 Section 5: Learning Resources</h3>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">1. Essential Documents and Texts</th>
+                    <th style="width: 20%;">Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2">Soil Compaction in Crop Production, B.D. Soane and C. van Ouwerkerk, Elsevier Science, Amsterdam, 2000, 640p.</td>
+                    <td>Main Textbook</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">2. Important Documents and Data</th>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2">1. Course Website</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
 
 </body>
 </html>
