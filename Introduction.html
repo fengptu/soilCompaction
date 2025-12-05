@@ -72,167 +72,199 @@
 <div class="section">
     <h2>1.1 Overview</h2>
     <p>
-        Agricultural soil mechanics focuses on how soil responds to external loads from tillage tools, tractor wheels,
-        and field traffic. Equations related to soil density, porosity, moisture, strength, and stress are fundamental 
-        for predicting soil compaction in agricultural fields.
+        Agricultural soil mechanics is a branch of applied soil mechanics focusing on how soil behaves under 
+        agricultural operations such as tillage, traction, field traffic, seeding, and harvesting. 
+        Understanding soil mechanical properties allows engineers to design farm machinery, predict soil deformation,
+        minimize compaction, and ensure sustainable crop production.
+    </p>
+    <p>
+        The mechanical response of soil is influenced by texture, structure, moisture, density, and stress distribution.
+        Key parameters include bulk density, porosity, shear strength, cone index, bearing capacity, and moisture content.
+        These parameters are used to evaluate soil health and to optimize machinery performance with minimal negative impact.
+    </p>
+    <p>
+        In agricultural engineering, soil mechanics helps answer essential questions such as:
+        <ul>
+            <li>How much pressure can a tractor apply before compacting the soil?</li>
+            <li>How does moisture condition affect tillage draft requirements?</li>
+            <li>What soil strength is needed to support field traffic without rutting?</li>
+            <li>How deep do stresses penetrate into soil under wheel loads?</li>
+        </ul>
     </p>
 </div>
 
+<!-- THREE PHASE -->
 <div class="section">
     <h2>1.2 Three-Phase Soil System</h2>
-    <p>Soil consists of solid particles, water, and air. The total soil volume is expressed as:</p>
-    [Image of 3 phase soil system]
+    <p>
+        Soil is a multiphase porous medium consisting of solids, water, and air.
+        The relative proportions of these three phases determine the soil’s physical behavior, including 
+        compaction resistance, hydraulic conductivity, and root penetration capability.
+    </p>
+    <p>Fundamental volume relationship:</p>
     <div class="formula">$$V = V_{s} + V_{w} + V_{a}$$</div>
     <div class="variables">
         <p><strong>V</strong> = total soil volume</p>
-        <p><strong>V<sub>s</sub></strong> = volume of soil solids</p>
+        <p><strong>V<sub>s</sub></strong> = volume of solid particles (minerals + organic matter)</p>
         <p><strong>V<sub>w</sub></strong> = volume of water in pores</p>
         <p><strong>V<sub>a</sub></strong> = volume of air in pores</p>
     </div>
-    <p class="reference">Reference: Hillel, D. (2004). <em>Introduction to Environmental Soil Physics</em>. Academic Press.</p>
+    <p>
+        A well-structured agricultural soil typically contains 45–50% solids, 25% air, and 25% water.
+        However, wheel traffic or excessive tillage can significantly reduce air-filled porosity,
+        making the soil more compact and less favorable for plant growth.
+    </p>
 </div>
 
+<!-- MASS-VOLUME -->
 <div class="section">
     <h2>1.3 Soil Mass–Volume Relationships</h2>
+    <p>
+        Mass–volume relationships form the foundation for describing soil physical properties and predicting 
+        how soil will respond to compaction and tillage forces. These parameters are routinely measured during 
+        soil analysis in agricultural engineering.
+    </p>
 
     <h3>1.3.1 Bulk Density ($\rho_{b}$)</h3>
+    <p>Bulk density is a key indicator of soil compaction and soil health.</p>
     <div class="formula">$$\rho_{b} = M_{s} / V$$</div>
     <div class="variables">
-        <p><strong>$\rho_{b}$</strong> = bulk density of soil (g/cm³)</p>
-        <p><strong>$M_{s}$</strong> = mass of dry soil solids (g)</p>
-        <p><strong>V</strong> = total soil volume (cm³)</p>
+        <p><strong>$\rho_{b}$</strong> = bulk density (g/cm³)</p>
+        <p><strong>$M_{s}$</strong> = oven-dry mass of soil solids</p>
+        <p><strong>V</strong> = total soil volume including pores</p>
     </div>
-    <p class="reference">Reference: Brady, N.C. & Weil, R.R. (2017). <em>The Nature and Properties of Soils</em>, 15th Edition. Pearson.</p>
+    <p>
+        Typical values:
+        <ul>
+            <li>Sandy soil: 1.5–1.7 g/cm³</li>
+            <li>Clay soil: 1.1–1.4 g/cm³</li>
+            <li>Root-growth critical threshold: > 1.6 g/cm³ (restricts root elongation)</li>
+        </ul>
+    </p>
 
     <h3>1.3.2 Particle Density ($\rho_{s}$)</h3>
+    <p>
+        Particle density reflects the density of the soil mineral fraction. 
+        Most mineral soils have particle density close to 2.65 g/cm³ (quartz-based minerals).
+    </p>
     <div class="formula">$$\rho_{s} = M_{s} / V_{s}$$</div>
-    <div class="variables">
-        <p><strong>$\rho_{s}$</strong> = particle density of soil solids (g/cm³)</p>
-        <p><strong>$M_{s}$</strong> = mass of dry soil solids (g)</p>
-        <p><strong>$V_{s}$</strong> = volume of soil solids (cm³)</p>
-    </div>
-    <p class="reference">Reference: Hillel, D. (2004). <em>Introduction to Environmental Soil Physics</em>. Academic Press.</p>
 
     <h3>1.3.3 Porosity (n)</h3>
+    <p>Porosity determines water movement, aeration, and compaction susceptibility.</p>
     <div class="formula">$$n = 1 − (\rho_{b} / \rho_{s})$$</div>
-    <div class="variables">
-        <p><strong>n</strong> = porosity (fraction of soil volume that is pore space)</p>
-    </div>
-    <p class="reference">Reference: Brady & Weil, 2017.</p>
+    <p>Healthy agricultural soil: porosity = 45–55%.</p>
 
     <h3>1.3.4 Void Ratio (e)</h3>
     <div class="formula">$$e = V_{v} / V_{s}$$</div>
-    <div class="variables">
-        <p><strong>e</strong> = void ratio</p>
-        <p><strong>$V_{v}$</strong> = volume of voids ($V_{w}$ + $V_{a}$)</p>
-    </div>
     <div class="formula">$$n = e / (1 + e)$$</div>
-    <p class="reference">Reference: Lambe, T.W. & Whitman, R.V. (1969). <em>Soil Mechanics</em>. Wiley.</p>
+    <p>
+        High void ratio = loose soil (e.g., recently tilled field)  
+        Low void ratio = compacted soil (wheel tracks, high clay content)
+    </p>
 </div>
 
+<!-- MOISTURE CONTENT -->
 <div class="section">
     <h2>1.4 Soil Moisture Content</h2>
+    <p>
+        Moisture strongly affects soil strength, compaction, draft force of tillage tools, and machinery performance.
+        Agricultural operations must consider optimum moisture ranges to avoid excessive compaction.
+    </p>
 
     <h3>1.4.1 Wet-Basis Moisture Content ($MC_{wb}$)</h3>
     <div class="formula">$$MC_{wb} = (M_{w} / (M_{w} + M_{s})) \times 100\%$$</div>
-    <div class="variables">
-        <p><strong>$MC_{wb}$</strong> = moisture content on wet basis (%)</p>
-        <p><strong>$M_{w}$</strong> = mass of water (g)</p>
-        <p><strong>$M_{s}$</strong> = mass of dry soil solids (g)</p>
-    </div>
-    <p class="reference">Reference: Gee, G.W. & Or, D. (2002). <em>Particle-size analysis</em>. In: Dane, J.H., Topp, G.C. (eds) Methods of Soil Analysis.</p>
 
     <h3>1.4.2 Dry-Basis Moisture Content ($MC_{db}$)</h3>
     <div class="formula">$$MC_{db} = (M_{w} / M_{s}) \times 100\%$$</div>
-    <div class="variables">
-        <p><strong>$MC_{db}$</strong> = moisture content on dry basis (%)</p>
-    </div>
 
     <h3>1.4.3 Volumetric Water Content ($\theta$)</h3>
     <div class="formula">$$\theta = V_{w} / V$$</div>
-    <div class="variables">
-        <p><strong>$\theta$</strong> = volumetric water content (fraction)</p>
-    </div>
     <div class="formula">$$\theta = MC_{db} \times (\rho_{b} / \rho_{w})$$</div>
-    <div class="variables">
-        <p><strong>$\rho_{w}$</strong> = water density ($\approx 1$ g/cm³)</p>
-    </div>
-    <p class="reference">Reference: Hillel, 2004; Brady & Weil, 2017.</p>
+
+    <p>
+        Important agricultural ranges:
+        <ul>
+            <li>Field capacity: 0.25–0.35</li>
+            <li>Permanent wilting point: 0.10–0.15</li>
+            <li>Optimum moisture for tillage: near plastic limit</li>
+        </ul>
+    </p>
 </div>
 
+<!-- STRESS -->
 <div class="section">
     <h2>1.5 Soil Stress Under Load</h2>
+    <p>
+        Evaluating soil stress helps determine how tractor tires, tracks, and implements affect subsurface layers.
+        Stress propagation influences compaction depth and extent.
+    </p>
 
     <h3>Normal Stress ($\sigma$)</h3>
     <div class="formula">$$\sigma = F / A$$</div>
-    <div class="variables">
-        <p><strong>$\sigma$</strong> = normal stress on soil (Pa)</p>
-        <p><strong>F</strong> = applied force (N)</p>
-        <p><strong>A</strong> = contact area (m²)</p>
-    </div>
-    <p class="reference">Reference: Lambe & Whitman, 1969.</p>
+    <p>
+        Larger tire area → lower stress → less compaction  
+        Smaller tire area → higher stress → deeper stress penetration
+    </p>
 
     <h3>Vertical Stress (Boussinesq Equation)</h3>
-    <div class="formula">$$\sigma_{z} = \frac{3P}{2\pi z^{2}} \times \left[\frac{1}{1 + (r/z)^{2}}^{5/2}\right]$$</div>
-    <div class="variables">
-        <p><strong>$\sigma_{z}$</strong> = vertical stress at depth z (Pa)</p>
-        <p><strong>P</strong> = point load (N)</p>
-        <p><strong>z</strong> = depth from surface (m)</p>
-        <p><strong>r</strong> = radial distance from load center (m)</p>
-    </div>
-    <p class="reference">Reference: Boussinesq, J. (1885). <em>Application des Potentiels à l'étude de l'équilibre et du mouvement des solides élastiques</em>.</p>
+    <div class="formula">$$\sigma_{z} = \frac{3P}{2\pi z^{2}} \left[\frac{1}{\left(1 + (r/z)^2\right)^{5/2}}\right]$$</div>
+    <p>
+        Boussinesq stresses predict how far compaction extends under repeated field traffic.  
+        Deep subsoil compaction (> 40 cm) is typically irreversible.
+    </p>
 </div>
 
+<!-- STRENGTH -->
 <div class="section">
     <h2>1.6 Soil Strength</h2>
 
     <h3>Mohr–Coulomb Criterion</h3>
     <div class="formula">$$\tau = c + \sigma \tan \phi$$</div>
-    <div class="variables">
-        <p><strong>$\tau$</strong> = shear stress (Pa)</p>
-        <p><strong>c</strong> = cohesion (Pa)</p>
-        <p><strong>$\sigma$</strong> = normal stress (Pa)</p>
-        <p><strong>$\phi$</strong> = internal friction angle (degrees)</p>
-    </div>
-    <p class="reference">Reference: Lambe & Whitman, 1969; Brady & Weil, 2017.</p>
+    <p>
+        Cohesion increases with clay content; friction angle increases with sand content.
+        This model helps estimate soil resistance during plowing, ripping, and wheel slip.
+    </p>
 
     <h3>Cone Index (CI)</h3>
     <div class="formula">$$CI = F / A_{c}$$</div>
-    <div class="variables">
-        <p><strong>CI</strong> = penetration resistance (Pa)</p>
-        <p><strong>F</strong> = force to push cone (N)</p>
-        <p><strong>$A_{c}$</strong> = area of cone base (m²)</p>
-    </div>
-    <p class="reference">Reference: ASABE Standard, S313.3 (2017).</p>
+    <p>
+        CI is widely used in agricultural soil compaction studies (e.g., ASABE S313.3).
+        <ul>
+            <li>CI < 1 MPa → favorable for root growth</li>
+            <li>CI 1–2 MPa → restricted root penetration</li>
+            <li>CI > 2 MPa → severe compaction</li>
+        </ul>
+    </p>
 </div>
 
+<!-- BEARING CAPACITY -->
 <div class="section">
     <h2>1.7 Soil Bearing Capacity</h2>
     <div class="formula">
         $$q_{ult} = c N_{c} + \sigma' N_{q} + 0.5 \gamma B N_{\gamma}$$
     </div>
-    <div class="variables">
-        <p><strong>$q_{ult}$</strong> = ultimate bearing capacity (Pa)</p>
-        <p><strong>$\sigma'$</strong> = effective overburden pressure (Pa)</p>
-        <p><strong>B</strong> = width of loaded area (m)</p>
-        <p><strong>$\gamma$</strong> = unit weight of soil (N/m³)</p>
-        <p><strong>$N_{c}$, $N_{q}$, $N_{\gamma}$</strong> = bearing capacity factors</p>
-    </div>
-    <p class="reference">Reference: Terzaghi, K. (1943). <em>Theoretical Soil Mechanics</em>. Wiley.</p>
+    <p>
+        Bearing capacity is important for:
+        <ul>
+            <li>Designing tractor tires and tracks</li>
+            <li>Preventing sinkage and rutting</li>
+            <li>Evaluating soft field conditions</li>
+        </ul>
+    </p>
+    <p>Low bearing capacity soils (wet clay, peat) require wide tires or crawler tracks.</p>
 </div>
 
+<!-- COMPACTION INDEX -->
 <div class="section">
     <h2>1.8 Compaction Index</h2>
     <div class="formula">
         $$CI_{x} = \frac{(\rho_{b,compacted} - \rho_{b,initial})}{\rho_{b,initial}} \times 100\%$$
     </div>
-    <div class="variables">
-        <p><strong>$CI_{x}$</strong> = compaction index (%)</p>
-        <p><strong>$\rho_{b,compacted}$</strong> = bulk density after compaction (g/cm³)</p>
-        <p><strong>$\rho_{b,initial}$</strong> = initial bulk density (g/cm³)</p>
-    </div>
-    <p class="reference">Reference: Hamza, M.A. & Anderson, W.K. (2005). <em>Soil compaction in cropping systems</em>. Soil & Tillage Research, 82: 121–145.</p>
-</div>
+    <p>
+        Compaction index quantifies how much the soil was compressed by wheel traffic, tillage tools, 
+        or field operations. Values above 10–15% indicate significant structural degradation.
+    </p>
+    <p>Used widely in soil compaction research for performanc
 
 <!-- SCRIPT BLOCK MOVED TO BEST PRACTICE LOCATION -->
 <script>
